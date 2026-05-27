@@ -1,0 +1,343 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Google Fonts ─────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap');
+
+/* ── CSS Custom Properties ────────────────────────── */
+:root {
+  --font-poppins:   'Poppins', sans-serif;
+  --font-playfair:  'Playfair Display', serif;
+
+  --color-purple:        #8B5CF6;
+  --color-purple-dark:   #6D28D9;
+  --color-purple-light:  #A78BFA;
+  --color-pink:          #EC4899;
+  --color-pink-light:    #F472B6;
+  --color-lime:          #A3E635;
+  --color-gold:          #F59E0B;
+
+  --color-bg:            #070714;
+  --color-bg-2:          #0E0E24;
+  --color-bg-3:          #15152E;
+  --color-bg-4:          #1E1E40;
+
+  --gradient-brand:   linear-gradient(135deg, #8B5CF6, #EC4899);
+  --gradient-accent:  linear-gradient(135deg, #EC4899, #A3E635);
+  --gradient-text:    linear-gradient(135deg, #A78BFA 0%, #EC4899 50%, #A3E635 100%);
+}
+
+/* ── Base Reset ───────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-poppins);
+  background-color: var(--color-bg);
+  color: #F0F0FF;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Custom Scrollbar ─────────────────────────────── */
+::-webkit-scrollbar              { width: 6px; }
+::-webkit-scrollbar-track        { background: #0A0A1A; }
+::-webkit-scrollbar-thumb        { background: linear-gradient(#8B5CF6, #EC4899); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover  { background: linear-gradient(#A78BFA, #F472B6); }
+
+/* ── Text Selection ───────────────────────────────── */
+::selection {
+  background: rgba(139, 92, 246, 0.4);
+  color: #fff;
+}
+
+/* ── Gradient Text Utility ────────────────────────── */
+.text-gradient {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-brand {
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-accent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Shimmer Gradient ─────────────────────────────── */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #A78BFA 0%,
+    #F472B6 25%,
+    #A3E635 50%,
+    #F472B6 75%,
+    #A78BFA 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+/* ── Glass Morphism ───────────────────────────────── */
+.glass {
+  background: rgba(14, 14, 36, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.glass-light {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ── Glow Effects ─────────────────────────────────── */
+.glow-purple {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.35), 0 0 60px rgba(139, 92, 246, 0.15);
+}
+
+.glow-pink {
+  box-shadow: 0 0 30px rgba(236, 72, 153, 0.35), 0 0 60px rgba(236, 72, 153, 0.15);
+}
+
+.glow-lime {
+  box-shadow: 0 0 30px rgba(163, 230, 53, 0.35);
+}
+
+/* ── Section Spacing ──────────────────────────────── */
+.section-padding {
+  padding: 6rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding { padding: 8rem 2rem; }
+}
+
+/* ── Decorative Divider ───────────────────────────── */
+.divider-gradient {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.5), rgba(236,72,153,0.5), transparent);
+}
+
+/* ── Card hover border glow ───────────────────────── */
+.card-glow {
+  position: relative;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(139,92,246,0), rgba(236,72,153,0));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  transition: background 0.35s ease;
+  pointer-events: none;
+}
+.card-glow:hover::before {
+  background: linear-gradient(135deg, rgba(139,92,246,0.7), rgba(236,72,153,0.7));
+}
+.card-glow:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.25), 0 0 0 1px rgba(139,92,246,0.2);
+}
+
+/* ── Scrollbar hide utility ───────────────────────── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* ── Button styles ────────────────────────────────── */
+.btn-primary {
+  background: linear-gradient(135deg, #8B5CF6, #EC4899);
+  color: #fff;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  padding: 0.85rem 2.2rem;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  min-height: 48px;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background 0.3s ease;
+}
+.btn-primary:hover::after {
+  background: rgba(255,255,255,0.1);
+}
+.btn-primary:hover {
+  box-shadow: 0 8px 30px rgba(139,92,246,0.5), 0 2px 10px rgba(236,72,153,0.4);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #F0F0FF;
+  font-family: var(--font-poppins);
+  font-weight: 600;
+  padding: 0.85rem 2.2rem;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(139,92,246,0.6);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  min-height: 48px;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn-outline:hover {
+  background: rgba(139,92,246,0.15);
+  border-color: rgba(139,92,246,0.9);
+  box-shadow: 0 0 20px rgba(139,92,246,0.3);
+  transform: translateY(-2px);
+}
+
+/* ── Accordion ────────────────────────────────────── */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.accordion-content.open {
+  max-height: 1200px;
+}
+
+/* ── Input focus ──────────────────────────────────── */
+.input-premium {
+  background: rgba(14, 14, 36, 0.7);
+  border: 1px solid rgba(139,92,246,0.25);
+  border-radius: 12px;
+  color: #F0F0FF;
+  padding: 0.85rem 1.2rem;
+  width: 100%;
+  font-family: var(--font-poppins);
+  font-size: 16px; /* Prevents iOS auto-zoom on focus */
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+  outline: none;
+  min-height: 48px;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (min-width: 768px) {
+  .input-premium { font-size: 0.9rem; }
+}
+.input-premium:focus {
+  border-color: rgba(139,92,246,0.7);
+  box-shadow: 0 0 0 3px rgba(139,92,246,0.15);
+  background: rgba(21, 21, 46, 0.9);
+}
+.input-premium::placeholder {
+  color: rgba(160, 160, 200, 0.5);
+}
+.input-premium option {
+  background: #15152E;
+  color: #F0F0FF;
+}
+
+/* ── Particle canvas background ──────────────────── */
+#particles-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ── Floating WhatsApp button ─────────────────────── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.65);
+}
+
+/* ── Keyframes ────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.05); }
+}
+
+@keyframes fadeUp {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  0%   { opacity: 0; transform: translateX(-40px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rotateSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
