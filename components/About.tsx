@@ -135,7 +135,7 @@ export default function About() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#orcamento" className="btn-primary">
+              <a href="/contato" className="btn-primary">
                 <i className="bi bi-clipboard-check" />
                 Solicitar Orçamento
               </a>

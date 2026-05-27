@@ -475,7 +475,7 @@ export default function MenuSection() {
             {/* CTA */}
             <div className="text-center mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="#orcamento"
+                href="/contato"
                 className="btn-primary"
                 style={{ background: `linear-gradient(135deg, ${current.color}, #EC4899)` }}
               >

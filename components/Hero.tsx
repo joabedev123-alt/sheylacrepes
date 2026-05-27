@@ -181,7 +181,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.7 }}
         >
-          <a href="#orcamento" className="btn-primary text-base w-full sm:w-auto">
+          <a href="/contato" className="btn-primary text-base w-full sm:w-auto">
             <i className="bi bi-clipboard-check" />
             Solicitar Orçamento
           </a>
@@ -230,7 +230,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5 }}
-        onClick={() => document.getElementById('especialidades')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => { window.location.href = '/especialidades' }}
       >
         <span className="text-[10px] tracking-[0.3em] text-white/30 uppercase">Descobrir</span>
         <motion.div

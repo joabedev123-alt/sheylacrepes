@@ -1,21 +1,21 @@
 import Link from 'next/link'
 
 const quickLinks = [
-  { href: '#inicio',         label: 'Início' },
-  { href: '#especialidades', label: 'Especialidades' },
-  { href: '#cardapios',      label: 'Cardápios' },
-  { href: '#sobre',          label: 'Sobre' },
-  { href: '#orcamento',      label: 'Solicitar Orçamento' },
-  { href: '#contato',        label: 'Contato' },
+  { href: '/',               label: 'Início' },
+  { href: '/especialidades', label: 'Especialidades' },
+  { href: '/cardapios',      label: 'Cardápios' },
+  { href: '/sobre',          label: 'Sobre' },
+  { href: '/contato',        label: 'Solicitar Orçamento' },
+  { href: '/contato',        label: 'Contato' },
 ]
 
 const specialtiesLinks = [
-  { href: '#cardapios', label: 'Crepes' },
-  { href: '#cardapios', label: 'Feijoada' },
-  { href: '#cardapios', label: 'Risotos' },
-  { href: '#cardapios', label: 'Churrasco' },
-  { href: '#cardapios', label: 'Massas' },
-  { href: '#cardapios', label: 'Estrogonoff' },
+  { href: '/cardapios', label: 'Crepes' },
+  { href: '/cardapios', label: 'Feijoada' },
+  { href: '/cardapios', label: 'Risotos' },
+  { href: '/cardapios', label: 'Churrasco' },
+  { href: '/cardapios', label: 'Massas' },
+  { href: '/cardapios', label: 'Estrogonoff' },
 ]
 
 export default function Footer() {
