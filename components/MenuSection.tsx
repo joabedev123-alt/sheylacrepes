@@ -8,7 +8,7 @@ import { motion, useInView, AnimatePresence } from 'framer-motion'
 const menuData = {
   crepes: {
     icon:  'bi-egg-fried',
-    color: '#8B5CF6',
+    color: '#C8A46B',
     price: 'R$ 65,00 / pessoa',
     info:  ['4 horas de evento', 'Mínimo 30 pessoas', 'Crianças até 6 anos não pagam', 'Frete sob consulta'],
     sections: [
@@ -70,7 +70,7 @@ const menuData = {
   },
   feijoada: {
     icon:  'bi-fire',
-    color: '#EC4899',
+    color: '#8B1E3F',
     price: 'R$ 75,00 / pessoa',
     info:  ['4 horas de evento', 'Mínimo 30 pessoas', 'Serviço completo incluso', 'Frete sob consulta'],
     sections: [
@@ -133,7 +133,7 @@ const menuData = {
   },
   risotos: {
     icon:  'bi-award',
-    color: '#F59E0B',
+    color: '#D9B97E',
     price: 'R$ 80,00 / pessoa',
     info:  ['Preparo ao vivo', 'Mínimo 25 pessoas', 'Equipamentos inclusos', 'Frete sob consulta'],
     sections: [
@@ -177,7 +177,7 @@ const menuData = {
   },
   churrasco: {
     icon:  'bi-thermometer-high',
-    color: '#EF4444',
+    color: '#A8844A',
     price: 'R$ 90,00 / pessoa',
     info:  ['4-5 horas de evento', 'Mínimo 30 pessoas', 'Churrasqueiro incluso', 'Frete sob consulta'],
     sections: [
@@ -232,7 +232,7 @@ const menuData = {
   },
   massas: {
     icon:  'bi-stars',
-    color: '#A3E635',
+    color: '#C8A46B',
     price: 'R$ 70,00 / pessoa',
     info:  ['3-4 horas de evento', 'Mínimo 25 pessoas', 'Macarronada inclusa', 'Frete sob consulta'],
     sections: [
@@ -316,11 +316,11 @@ function AccordionSection({
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="rounded-xl overflow-hidden mb-3" style={{ background: 'rgba(21,21,46,0.6)', border: `1px solid ${open ? accent + '44' : 'rgba(139,92,246,0.15)'}` }}>
+    <div className="rounded-xl overflow-hidden mb-3" style={{ background: 'rgba(21,21,46,0.6)', border: `1px solid ${open ? accent + '44' : 'rgba(200,164,107,0.15)'}` }}>
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-5 py-4 text-left cursor-pointer group transition-colors"
-        style={{ background: open ? `${accent}0D` : 'transparent', minHeight: '52px', WebkitTapHighlightColor: 'transparent' }}
+        style={{ background: open ? `${accent}0D` : 'transparent' }}
       >
         <span
           className="font-semibold text-sm uppercase tracking-widest transition-colors"
@@ -339,7 +339,7 @@ function AccordionSection({
       <div className={`accordion-content ${open ? 'open' : ''}`}>
         <div className="px-5 pb-5 pt-1">
           <div className="divider-gradient mb-4 opacity-40" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             {section.items.map((item) => (
               <div
                 key={item.name}
@@ -368,7 +368,7 @@ export default function MenuSection() {
   const current = menuData[active]
 
   return (
-    <section id="cardapios" className="section-padding" style={{ background: '#070714' }}>
+    <section id="cardapios" className="section-padding" style={{ background: '#0F0F0F' }}>
       <div className="max-w-5xl mx-auto">
 
         {/* Header */}
@@ -379,7 +379,7 @@ export default function MenuSection() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-pink-light mb-4 block">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-cream mb-4 block">
             Menu completo
           </span>
           <h2
@@ -394,8 +394,8 @@ export default function MenuSection() {
           <div className="divider-gradient w-24 mx-auto mt-8" />
         </motion.div>
 
-        {/* Tab Navigation — horizontal scroll on mobile */}
-        <div className="flex overflow-x-auto gap-2 mb-10 pb-2 scrollbar-hide sm:flex-wrap sm:justify-center">
+        {/* Tab Navigation */}
+        <div className="flex flex-wrap justify-center gap-2 mb-10">
           {tabs.map((tab) => {
             const data = menuData[tab.key]
             const isActive = active === tab.key
@@ -403,14 +403,12 @@ export default function MenuSection() {
               <button
                 key={tab.key}
                 onClick={() => setActive(tab.key)}
-                className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer flex-shrink-0"
+                className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer"
                 style={{
                   background: isActive ? `linear-gradient(135deg, ${data.color}33, ${data.color}18)` : 'rgba(21,21,46,0.6)',
-                  border:     `1px solid ${isActive ? data.color + '66' : 'rgba(139,92,246,0.2)'}`,
+                  border:     `1px solid ${isActive ? data.color + '66' : 'rgba(200,164,107,0.2)'}`,
                   color:      isActive ? data.color : '#9CA3AF',
                   boxShadow:  isActive ? `0 0 20px ${data.color}22` : 'none',
-                  minHeight:  '48px',
-                  WebkitTapHighlightColor: 'transparent',
                 }}
               >
                 <i className={`${tab.icon} text-base`} />
@@ -431,13 +429,13 @@ export default function MenuSection() {
           >
             {/* Price & Info Bar */}
             <div
-              className="p-5 rounded-2xl mb-6"
+              className="flex flex-wrap items-center justify-between gap-4 p-5 rounded-2xl mb-6"
               style={{
                 background: `linear-gradient(135deg, ${current.color}18, ${current.color}0A)`,
                 border:     `1px solid ${current.color}33`,
               }}
             >
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3">
                 <i className={`${current.icon} text-2xl`} style={{ color: current.color }} />
                 <div>
                   <div
@@ -449,19 +447,19 @@ export default function MenuSection() {
                   <div className="text-xs text-white/40">por pessoa</div>
                 </div>
               </div>
-              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2">
                 {current.info.map((item) => (
                   <span
                     key={item}
-                    className="text-xs px-3 py-2 rounded-full flex items-center gap-1.5"
+                    className="text-xs px-3 py-1 rounded-full"
                     style={{
                       background: `${current.color}18`,
                       color:       current.color,
                       border:      `1px solid ${current.color}33`,
                     }}
                   >
-                    <i className="bi bi-check-circle flex-shrink-0" />
-                    <span className="truncate">{item}</span>
+                    <i className="bi bi-check-circle mr-1.5" />
+                    {item}
                   </span>
                 ))}
               </div>
@@ -475,7 +473,7 @@ export default function MenuSection() {
             {/* CTA */}
             <div className="text-center mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
-                href="/contato"
+                href="#orcamento"
                 className="btn-primary"
                 style={{ background: `linear-gradient(135deg, ${current.color}, #EC4899)` }}
               >

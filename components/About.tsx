@@ -5,10 +5,10 @@ import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 
 const values = [
-  { icon: 'bi-heart-fill',        label: 'Paixão pela gastronomia', color: '#EC4899' },
-  { icon: 'bi-patch-check-fill',  label: 'Ingredientes selecionados', color: '#8B5CF6' },
-  { icon: 'bi-people-fill',       label: 'Equipe profissional',        color: '#F59E0B' },
-  { icon: 'bi-award-fill',        label: 'Eventos memoráveis',         color: '#A3E635' },
+  { icon: 'bi-heart-fill',        label: 'Paixão pela gastronomia', color: '#8B1E3F' },
+  { icon: 'bi-patch-check-fill',  label: 'Ingredientes selecionados', color: '#C8A46B' },
+  { icon: 'bi-people-fill',       label: 'Equipe profissional',        color: '#D9B97E' },
+  { icon: 'bi-award-fill',        label: 'Eventos memoráveis',         color: '#C8A46B' },
 ]
 
 export default function About() {
@@ -18,8 +18,7 @@ export default function About() {
   return (
     <section
       id="sobre"
-      className="section-padding"
-      style={{ background: '#070714' }}
+      className="section-padding relative bg-gradient-to-b from-transparent to-[#0F0F0F]/30"
     >
       <div className="max-w-7xl mx-auto">
         <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -55,24 +54,24 @@ export default function About() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 0.5, duration: 0.6 }}
-              style={{ border: '1px solid rgba(139,92,246,0.3)' }}
+              style={{ border: '1px solid rgba(200,164,107,0.3)' }}
             >
               <div className="flex items-center gap-4">
                 <div
                   className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: 'linear-gradient(135deg, #8B5CF6, #EC4899)' }}
+                  style={{ background: 'linear-gradient(135deg, #C8A46B, #8B1E3F)' }}
                 >
                   <i className="bi bi-patch-heart-fill text-white text-2xl" />
                 </div>
                 <div>
                   <div
-                    className="text-2xl font-black text-gradient-brand"
+                    className="text-2xl font-semibold text-gradient-brand"
                     style={{ fontFamily: "'Playfair Display', serif" }}
                   >
                     500+
                   </div>
-                  <div className="text-xs text-white/60 leading-tight">
-                    Eventos realizados<br />com sucesso
+                  <div className="text-[10px] text-white/60 leading-tight uppercase tracking-widest font-light mt-1">
+                    Celebrações<br />Realizadas
                   </div>
                 </div>
               </div>
@@ -81,7 +80,7 @@ export default function About() {
             {/* Decorative glow */}
             <div
               className="absolute -top-10 -left-10 w-60 h-60 rounded-full blur-3xl pointer-events-none"
-              style={{ background: 'rgba(139,92,246,0.12)' }}
+              style={{ background: 'rgba(200,164,107,0.12)' }}
             />
           </motion.div>
 
@@ -91,33 +90,27 @@ export default function About() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
           >
-            <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-purple-light mb-4 block">
-              Nossa história
+            <span className="text-[10px] font-light uppercase tracking-[0.4em] text-purple-300 mb-4 block">
+              Essência & Legado
             </span>
             <h2
-              className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight"
+              className="text-3xl md:text-4xl font-normal text-white mb-6 leading-relaxed"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              Sobre a{' '}
-              <span className="text-gradient">Sheylacrepes</span>
+              A Arte de Receber com <br />
+              <span className="text-gradient font-semibold">Exclusividade</span>
             </h2>
 
-            <p className="text-base text-white/65 leading-relaxed mb-5">
-              A <strong className="text-white/90">Sheylacrepes</strong> nasceu da paixão genuína pela
-              gastronomia e pelo desejo de transformar cada evento em uma experiência inesquecível.
-              Com mais de uma década de atuação no mercado de buffet premium, construímos uma
-              trajetória marcada pela excelência culinária e pelo cuidado personalizado com cada cliente.
+            <p className="text-sm md:text-base text-white/60 leading-relaxed mb-5 font-light tracking-wide">
+              A <strong className="text-white/80 font-normal">Sheylacrepes</strong> transcende o conceito tradicional de buffet. Nascemos da paixão genuína pela alta gastronomia e do desejo de eternizar momentos. Com mais de uma década de dedicação ao mercado premium, tecemos uma trajetória pautada pela excelência e pelo cuidado artesanal em cada detalhe.
             </p>
 
-            <p className="text-base text-white/65 leading-relaxed mb-5">
-              Nossa equipe é formada por profissionais apaixonados, que colocam dedicação e criatividade
-              em cada prato servido. Do preparo ao vivo de crepes sofisticados às feijoadas tradicionais
-              e risotos cremosos, cada detalhe é pensado para encantar seu paladar e o de seus convidados.
+            <p className="text-sm md:text-base text-white/60 leading-relaxed mb-5 font-light tracking-wide">
+              Nossa curadoria gastronômica é conduzida por profissionais exímios, que harmonizam técnica e criatividade. Do preparo ao vivo de crepes requintados à releitura de clássicos como feijoadas e risotos, cada criação é concebida para despertar os sentidos e surpreender seus convidados.
             </p>
 
-            <p className="text-base text-white/65 leading-relaxed mb-10">
-              Atendemos São Paulo capital, interior e litoral, levando a mesma qualidade e sofisticação
-              independente do local. Porque para a Sheylacrepes, cada evento merece o melhor.
+            <p className="text-sm md:text-base text-white/60 leading-relaxed mb-10 font-light tracking-wide">
+              Com atuação em São Paulo capital, interior e litoral, garantimos o mesmo rigor estético e gustativo em qualquer cenário. Afinal, a sua celebração merece a assinatura de um serviço impecável.
             </p>
 
             {/* Values */}
@@ -135,7 +128,7 @@ export default function About() {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="/contato" className="btn-primary">
+              <a href="#orcamento" className="btn-primary">
                 <i className="bi bi-clipboard-check" />
                 Solicitar Orçamento
               </a>

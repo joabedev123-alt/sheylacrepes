@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Google Fonts ─────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap');
 
 /* ── CSS Custom Properties ────────────────────────── */
@@ -10,22 +9,22 @@
   --font-poppins:   'Poppins', sans-serif;
   --font-playfair:  'Playfair Display', serif;
 
-  --color-purple:        #8B5CF6;
-  --color-purple-dark:   #6D28D9;
-  --color-purple-light:  #A78BFA;
-  --color-pink:          #EC4899;
-  --color-pink-light:    #F472B6;
-  --color-lime:          #A3E635;
-  --color-gold:          #F59E0B;
+  --color-gold:        #C8A46B;
+  --color-gold-light:  #D9B97E;
+  --color-gold-dark:   #A8844A;
+  --color-wine:        #8B1E3F;
+  --color-wine-light:  #A02449;
+  --color-cream:       #F5F1EA;
+  --color-muted:       #B8B8B8;
 
-  --color-bg:            #070714;
-  --color-bg-2:          #0E0E24;
-  --color-bg-3:          #15152E;
-  --color-bg-4:          #1E1E40;
+  --color-bg:   #0F0F0F;
+  --color-bg-2: #181818;
+  --color-bg-3: #222222;
+  --color-bg-4: #2A2A2A;
 
-  --gradient-brand:   linear-gradient(135deg, #8B5CF6, #EC4899);
-  --gradient-accent:  linear-gradient(135deg, #EC4899, #A3E635);
-  --gradient-text:    linear-gradient(135deg, #A78BFA 0%, #EC4899 50%, #A3E635 100%);
+  --gradient-brand:  linear-gradient(135deg, #C8A46B, #8B1E3F);
+  --gradient-gold:   linear-gradient(135deg, #C8A46B, #D9B97E);
+  --gradient-text:   linear-gradient(135deg, #D9B97E 0%, #C8A46B 50%, #8B1E3F 100%);
 }
 
 /* ── Base Reset ───────────────────────────────────── */
@@ -43,25 +42,25 @@ html {
 body {
   font-family: var(--font-poppins);
   background-color: var(--color-bg);
-  color: #F0F0FF;
+  color: #FFFFFF;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 /* ── Custom Scrollbar ─────────────────────────────── */
-::-webkit-scrollbar              { width: 6px; }
-::-webkit-scrollbar-track        { background: #0A0A1A; }
-::-webkit-scrollbar-thumb        { background: linear-gradient(#8B5CF6, #EC4899); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover  { background: linear-gradient(#A78BFA, #F472B6); }
+::-webkit-scrollbar              { width: 5px; }
+::-webkit-scrollbar-track        { background: #0F0F0F; }
+::-webkit-scrollbar-thumb        { background: linear-gradient(#C8A46B, #8B1E3F); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover  { background: #D9B97E; }
 
 /* ── Text Selection ───────────────────────────────── */
 ::selection {
-  background: rgba(139, 92, 246, 0.4);
+  background: rgba(200, 164, 107, 0.3);
   color: #fff;
 }
 
-/* ── Gradient Text Utility ────────────────────────── */
+/* ── Gradient Text Utilities ──────────────────────── */
 .text-gradient {
   background: var(--gradient-text);
   -webkit-background-clip: text;
@@ -76,22 +75,15 @@ body {
   background-clip: text;
 }
 
-.text-gradient-accent {
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* ── Shimmer Gradient ─────────────────────────────── */
+/* ── Shimmer dourado ──────────────────────────────── */
 .shimmer-text {
   background: linear-gradient(
     90deg,
-    #A78BFA 0%,
-    #F472B6 25%,
-    #A3E635 50%,
-    #F472B6 75%,
-    #A78BFA 100%
+    #C8A46B 0%,
+    #F5F1EA 30%,
+    #D9B97E 50%,
+    #F5F1EA 70%,
+    #C8A46B 100%
   );
   background-size: 200% auto;
   -webkit-background-clip: text;
@@ -102,37 +94,32 @@ body {
 
 /* ── Glass Morphism ───────────────────────────────── */
 .glass {
-  background: rgba(14, 14, 36, 0.6);
+  background: rgba(24, 24, 24, 0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  border: 1px solid rgba(200, 164, 107, 0.15);
 }
 
 .glass-light {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(200, 164, 107, 0.12);
 }
 
 /* ── Glow Effects ─────────────────────────────────── */
-.glow-purple {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.35), 0 0 60px rgba(139, 92, 246, 0.15);
+.glow-gold {
+  box-shadow: 0 0 30px rgba(200, 164, 107, 0.35), 0 0 60px rgba(200, 164, 107, 0.15);
 }
 
-.glow-pink {
-  box-shadow: 0 0 30px rgba(236, 72, 153, 0.35), 0 0 60px rgba(236, 72, 153, 0.15);
-}
-
-.glow-lime {
-  box-shadow: 0 0 30px rgba(163, 230, 53, 0.35);
+.glow-wine {
+  box-shadow: 0 0 30px rgba(139, 30, 63, 0.35), 0 0 60px rgba(139, 30, 63, 0.15);
 }
 
 /* ── Section Spacing ──────────────────────────────── */
 .section-padding {
   padding: 6rem 1.5rem;
 }
-
 @media (min-width: 768px) {
   .section-padding { padding: 8rem 2rem; }
 }
@@ -140,7 +127,7 @@ body {
 /* ── Decorative Divider ───────────────────────────── */
 .divider-gradient {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(139,92,246,0.5), rgba(236,72,153,0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(200,164,107,0.5), rgba(139,30,63,0.4), transparent);
 }
 
 /* ── Card hover border glow ───────────────────────── */
@@ -154,7 +141,7 @@ body {
   inset: -1px;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(139,92,246,0), rgba(236,72,153,0));
+  background: linear-gradient(135deg, rgba(200,164,107,0), rgba(139,30,63,0));
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude;
@@ -162,31 +149,23 @@ body {
   pointer-events: none;
 }
 .card-glow:hover::before {
-  background: linear-gradient(135deg, rgba(139,92,246,0.7), rgba(236,72,153,0.7));
+  background: linear-gradient(135deg, rgba(200,164,107,0.6), rgba(139,30,63,0.6));
 }
 .card-glow:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.25), 0 0 0 1px rgba(139,92,246,0.2);
+  box-shadow: 0 20px 60px rgba(200, 164, 107, 0.15), 0 0 0 1px rgba(200,164,107,0.2);
 }
 
-/* ── Scrollbar hide utility ───────────────────────── */
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-
-/* ── Button styles ────────────────────────────────── */
+/* ── Buttons ──────────────────────────────────────── */
 .btn-primary {
-  background: linear-gradient(135deg, #8B5CF6, #EC4899);
-  color: #fff;
+  background: linear-gradient(135deg, #C8A46B, #A8844A);
+  color: #0F0F0F;
   font-family: var(--font-poppins);
-  font-weight: 600;
+  font-weight: 700;
   padding: 0.85rem 2.2rem;
   border-radius: 50px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -194,48 +173,40 @@ body {
   overflow: hidden;
   border: none;
   font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   min-height: 48px;
   -webkit-tap-highlight-color: transparent;
 }
-.btn-primary::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(255,255,255,0);
-  transition: background 0.3s ease;
-}
-.btn-primary:hover::after {
-  background: rgba(255,255,255,0.1);
-}
 .btn-primary:hover {
-  box-shadow: 0 8px 30px rgba(139,92,246,0.5), 0 2px 10px rgba(236,72,153,0.4);
+  background: linear-gradient(135deg, #D9B97E, #C8A46B);
+  box-shadow: 0 8px 30px rgba(200,164,107,0.45), 0 2px 10px rgba(200,164,107,0.3);
   transform: translateY(-2px);
 }
 
 .btn-outline {
   background: transparent;
-  color: #F0F0FF;
+  color: #C8A46B;
   font-family: var(--font-poppins);
   font-weight: 600;
   padding: 0.85rem 2.2rem;
   border-radius: 50px;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 0.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 1px solid rgba(139,92,246,0.6);
+  border: 1px solid rgba(200,164,107,0.6);
   font-size: 0.95rem;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   min-height: 48px;
   -webkit-tap-highlight-color: transparent;
 }
 .btn-outline:hover {
-  background: rgba(139,92,246,0.15);
-  border-color: rgba(139,92,246,0.9);
-  box-shadow: 0 0 20px rgba(139,92,246,0.3);
+  background: rgba(200,164,107,0.1);
+  border-color: rgba(200,164,107,0.9);
+  box-shadow: 0 0 20px rgba(200,164,107,0.25);
   transform: translateY(-2px);
 }
 
@@ -249,46 +220,43 @@ body {
   max-height: 1200px;
 }
 
-/* ── Input focus ──────────────────────────────────── */
+/* ── Input premium ────────────────────────────────── */
 .input-premium {
-  background: rgba(14, 14, 36, 0.7);
-  border: 1px solid rgba(139,92,246,0.25);
+  background: rgba(24, 24, 24, 0.8);
+  border: 1px solid rgba(200,164,107,0.2);
   border-radius: 12px;
-  color: #F0F0FF;
+  color: #F5F1EA;
   padding: 0.85rem 1.2rem;
   width: 100%;
   font-family: var(--font-poppins);
-  font-size: 16px; /* Prevents iOS auto-zoom on focus */
+  font-size: 0.9rem;
   transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
   outline: none;
-  min-height: 48px;
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: transparent;
 }
-@media (min-width: 768px) {
-  .input-premium { font-size: 0.9rem; }
+@media (max-width: 768px) {
+  .input-premium { font-size: 16px; }
 }
 .input-premium:focus {
-  border-color: rgba(139,92,246,0.7);
-  box-shadow: 0 0 0 3px rgba(139,92,246,0.15);
-  background: rgba(21, 21, 46, 0.9);
+  border-color: rgba(200,164,107,0.7);
+  box-shadow: 0 0 0 3px rgba(200,164,107,0.12);
+  background: rgba(34, 34, 34, 0.95);
 }
 .input-premium::placeholder {
-  color: rgba(160, 160, 200, 0.5);
+  color: rgba(184, 184, 184, 0.45);
 }
 .input-premium option {
-  background: #15152E;
-  color: #F0F0FF;
+  background: #181818;
+  color: #F5F1EA;
 }
 
-/* ── Particle canvas background ──────────────────── */
-#particles-canvas {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+/* ── Scrollbar hide ───────────────────────────────── */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
 
-/* ── Floating WhatsApp button ─────────────────────── */
+/* ── Floating WhatsApp ────────────────────────────── */
 .whatsapp-float {
   position: fixed;
   bottom: 2rem;

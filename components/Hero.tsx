@@ -25,7 +25,7 @@ export default function Hero() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    const colors = ['#A78BFA', '#F472B6', '#A3E635', '#F59E0B', '#FFFFFF']
+    const colors = ['#C8A46B', '#D9B97E', '#8B1E3F', '#F5F1EA', '#A8844A']
 
     const resize = () => {
       canvas.width  = window.innerWidth
@@ -91,7 +91,7 @@ export default function Hero() {
     <section
       id="inicio"
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: '#070714' }}
+      style={{ background: '#0F0F0F' }}
     >
       {/* Background image with parallax */}
       <div
@@ -101,33 +101,24 @@ export default function Hero() {
           backgroundImage: `url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1920&q=80')`,
           backgroundSize:     'cover',
           backgroundPosition: 'center',
-          filter:             'brightness(0.35) saturate(1.1)',
+          filter:             'brightness(0.45) saturate(0.9)',
           transform:          'scale(1.1)',
         }}
       />
 
-      {/* Multi-layer gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-overlay" />
+      {/* Gradient overlay — escuro gourmet */}
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(15,15,15,0.20) 0%, rgba(15,15,15,0.55) 100%)' }} />
       <div
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse at 20% 50%, rgba(139,92,246,0.18) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(236,72,153,0.14) 0%, transparent 60%), radial-gradient(ellipse at 50% 90%, rgba(163,230,53,0.08) 0%, transparent 50%)',
+            'radial-gradient(ellipse at 20% 60%, rgba(139,30,63,0.18) 0%, transparent 55%), radial-gradient(ellipse at 80% 40%, rgba(200,164,107,0.12) 0%, transparent 55%)',
         }}
       />
 
       {/* Canvas Particles */}
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
 
-      {/* Decorative ring */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full border border-brand-purple/10 pointer-events-none"
-        style={{ animation: 'rotateSlow 40s linear infinite' }}
-      />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-brand-pink/8 pointer-events-none"
-        style={{ animation: 'rotateSlow 28s linear infinite reverse' }}
-      />
 
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
@@ -139,8 +130,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-brand-lime animate-pulse" />
-          <span className="text-xs font-semibold tracking-[0.2em] text-white/70 uppercase">
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-gold animate-pulse" />
+          <span className="text-xs font-semibold tracking-[0.2em] text-brand-cream/70 uppercase">
             Buffet Gourmet Premium · São Paulo
           </span>
         </motion.div>
@@ -153,8 +144,10 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
         >
-          <span className="block text-white mb-1">Sabor,</span>
-          <span className="block shimmer-text">sofisticação</span>
+          <span className="block mb-1">
+            <span className="text-white">Sabor, </span>
+            <span className="shimmer-text">sofisticação</span>
+          </span>
           <span className="block text-white/90 text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-1 font-bold italic">
             e experiências inesquecíveis.
           </span>
@@ -168,9 +161,9 @@ export default function Hero() {
           transition={{ delay: 0.7, duration: 0.7 }}
         >
           Buffet premium especializado em{' '}
-          <span className="text-brand-purple-light font-medium">Crepes</span>,{' '}
-          <span className="text-brand-pink-light font-medium">Feijoadas</span>,{' '}
-          <span className="text-brand-lime font-medium">Risotos</span>,{' '}
+          <span className="text-brand-gold font-medium">Crepes</span>,{' '}
+          <span className="text-brand-cream font-medium">Feijoadas</span>,{' '}
+          <span className="text-brand-gold-light font-medium">Risotos</span>,{' '}
           Massas e Eventos Gourmet.
         </motion.p>
 
@@ -181,7 +174,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.9, duration: 0.7 }}
         >
-          <a href="/contato" className="btn-primary text-base w-full sm:w-auto">
+          <a href="#orcamento" className="btn-primary text-base w-full sm:w-auto">
             <i className="bi bi-clipboard-check" />
             Solicitar Orçamento
           </a>
@@ -198,7 +191,7 @@ export default function Hero() {
 
         {/* Stats */}
         <motion.div
-          className="grid grid-cols-2 sm:flex sm:flex-wrap sm:justify-center gap-6 sm:gap-8 mt-14"
+          className="flex flex-wrap justify-center gap-8 mt-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 0.8 }}
@@ -224,23 +217,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
-      <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        onClick={() => { window.location.href = '/especialidades' }}
-      >
-        <span className="text-[10px] tracking-[0.3em] text-white/30 uppercase">Descobrir</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-          className="w-6 h-10 rounded-full border border-white/20 flex items-start justify-center p-1.5"
-        >
-          <div className="w-1 h-2 rounded-full bg-brand-purple-light" />
-        </motion.div>
-      </motion.div>
     </section>
   )
 }

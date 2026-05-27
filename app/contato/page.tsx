@@ -1,27 +1,27 @@
 import type { Metadata } from 'next'
 import PageBanner from '@/components/PageBanner'
-import Contact from '@/components/Contact'
 import QuoteForm from '@/components/QuoteForm'
+import Contact from '@/components/Contact'
 
 export const metadata: Metadata = {
   title: 'Contato',
   description:
-    'Entre em contato com a Sheylacrepes. Solicite orçamento para seu evento: WhatsApp, e-mail e formulário completo. Atendemos SP capital, interior e litoral.',
+    'Entre em contato com a Sheylacrepes. Solicite orçamento para seu evento gourmet em São Paulo. Respondemos em até 24 horas.',
 }
 
 export default function ContatoPage() {
   return (
     <>
       <PageBanner
-        title="Entre em"
-        titleAccent="Contato"
-        subtitle="Solicite seu orçamento personalizado e vamos tornar o seu evento inesquecível juntos."
+        title="Fale"
+        titleAccent="Conosco"
+        subtitle="Solicite seu orçamento personalizado. Respondemos em até 24 horas úteis."
         icon="bi-chat-heart-fill"
-        accentColor="#A3E635"
+        accentColor="#EC4899"
         breadcrumb="Contato"
       />
-      <Contact />
       <QuoteForm />
+      <Contact />
     </>
   )
 }

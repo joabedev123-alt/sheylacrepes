@@ -6,7 +6,7 @@ import Differentials from '@/components/Differentials'
 export const metadata: Metadata = {
   title: 'Especialidades',
   description:
-    'Conheça todas as especialidades da Sheylacrepes: Crepes, Feijoada, Risotos, Churrasco, Massas e Estrogonoff. Buffet gourmet premium em São Paulo.',
+    'Conheça todas as especialidades da Sheylacrepes: Crepes, Feijoada, Risotos, Churrasco, Massas e Estrogonoff. Buffet gourmet premium para seu evento.',
 }
 
 export default function EspecialidadesPage() {
@@ -15,8 +15,8 @@ export default function EspecialidadesPage() {
       <PageBanner
         title="Nossas"
         titleAccent="Especialidades"
-        subtitle="Uma culinária pensada para impressionar. Escolha a especialidade e encante seus convidados."
-        icon="bi-grid-3x3-gap-fill"
+        subtitle="Seis especialidades gourmet cuidadosamente preparadas para transformar seu evento em uma experiência gastronômica inesquecível."
+        icon="bi-stars"
         accentColor="#8B5CF6"
         breadcrumb="Especialidades"
       />

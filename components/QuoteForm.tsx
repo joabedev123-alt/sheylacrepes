@@ -66,8 +66,8 @@ function FieldLabel({ children }: { children: React.ReactNode }) {
 function SectionTitle({ icon, children }: { icon: string; children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-5 pt-2">
-      <div className="w-8 h-8 rounded-lg bg-brand-purple/20 border border-brand-purple/30 flex items-center justify-center flex-shrink-0">
-        <i className={`${icon} text-sm text-brand-purple-light`} />
+      <div className="w-8 h-8 rounded-lg bg-brand-gold/20 border border-brand-purple/30 flex items-center justify-center flex-shrink-0">
+        <i className={`${icon} text-sm text-brand-gold-light`} />
       </div>
       <h3
         className="text-base font-bold text-white/80 uppercase tracking-widest"
@@ -75,7 +75,7 @@ function SectionTitle({ icon, children }: { icon: string; children: React.ReactN
       >
         {children}
       </h3>
-      <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, rgba(139,92,246,0.4), transparent)' }} />
+      <div className="flex-1 h-px" style={{ background: 'linear-gradient(90deg, rgba(200,164,107,0.4), transparent)' }} />
     </div>
   )
 }
@@ -93,12 +93,10 @@ function RadioGroup({
       {options.map((opt) => (
         <label
           key={opt.value}
-          className="flex items-center gap-2 px-3 py-2.5 rounded-lg cursor-pointer transition-all duration-200"
+          className="flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer transition-all duration-200"
           style={{
-            background: value === opt.value ? 'rgba(139,92,246,0.2)' : 'rgba(21,21,46,0.5)',
-            border:     `1px solid ${value === opt.value ? 'rgba(139,92,246,0.6)' : 'rgba(139,92,246,0.2)'}`,
-            minHeight: '44px',
-            WebkitTapHighlightColor: 'transparent',
+            background: value === opt.value ? 'rgba(200,164,107,0.2)' : 'rgba(21,21,46,0.5)',
+            border:     `1px solid ${value === opt.value ? 'rgba(200,164,107,0.6)' : 'rgba(200,164,107,0.2)'}`,
           }}
         >
           <input
@@ -111,10 +109,10 @@ function RadioGroup({
           />
           <div
             className="w-3.5 h-3.5 rounded-full border-2 flex items-center justify-center transition-all"
-            style={{ borderColor: value === opt.value ? '#8B5CF6' : 'rgba(139,92,246,0.35)' }}
+            style={{ borderColor: value === opt.value ? '#C8A46B' : 'rgba(200,164,107,0.35)' }}
           >
             {value === opt.value && (
-              <div className="w-1.5 h-1.5 rounded-full bg-brand-purple" />
+              <div className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
             )}
           </div>
           <span
@@ -136,17 +134,16 @@ function CheckboxField({
 }) {
   return (
     <label
-      className="flex items-center gap-2.5 cursor-pointer group py-1"
-      style={{ minHeight: '44px', WebkitTapHighlightColor: 'transparent' }}
+      className="flex items-center gap-2.5 cursor-pointer group"
     >
       <div
         className="w-5 h-5 rounded flex items-center justify-center transition-all duration-200 flex-shrink-0"
         style={{
-          background: checked ? 'rgba(139,92,246,0.3)' : 'rgba(14,14,36,0.8)',
-          border:     `1.5px solid ${checked ? '#8B5CF6' : 'rgba(139,92,246,0.3)'}`,
+          background: checked ? 'rgba(200,164,107,0.3)' : 'rgba(14,14,36,0.8)',
+          border:     `1.5px solid ${checked ? '#C8A46B' : 'rgba(200,164,107,0.3)'}`,
         }}
       >
-        {checked && <i className="bi bi-check text-xs text-brand-purple-light font-bold" />}
+        {checked && <i className="bi bi-check text-xs text-brand-gold-light font-bold" />}
       </div>
       <input
         type="checkbox"
@@ -219,7 +216,7 @@ export default function QuoteForm() {
       className="section-padding"
       style={{
         background:
-          'radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.1) 0%, transparent 60%), #0A0A1E',
+          'radial-gradient(ellipse at 50% 0%, rgba(200,164,107,0.1) 0%, transparent 60%), #0F0F0F',
       }}
     >
       <div className="max-w-4xl mx-auto">
@@ -232,7 +229,7 @@ export default function QuoteForm() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-purple-light mb-4 block">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-gold-light mb-4 block">
             Solicite agora
           </span>
           <h2
@@ -253,7 +250,7 @@ export default function QuoteForm() {
           style={{
             background:   'rgba(14,14,36,0.7)',
             backdropFilter: 'blur(20px)',
-            border:       '1px solid rgba(139,92,246,0.2)',
+            border:       '1px solid rgba(200,164,107,0.2)',
             boxShadow:    '0 25px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04)',
           }}
           initial={{ opacity: 0, y: 40 }}

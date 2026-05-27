@@ -11,7 +11,7 @@ const specialties = [
     icon:  'bi-egg-fried',
     desc:  'Crepes salgados e doces preparados ao vivo com ingredientes selecionados. Da tradição francesa ao toque gourmet brasileiro.',
     image: 'https://images.unsplash.com/photo-1519676867240-f03562e64548?w=800&q=80',
-    color: '#8B5CF6',
+    color: '#C8A46B',
     badge: 'Especialidade principal',
   },
   {
@@ -20,7 +20,7 @@ const specialties = [
     icon:  'bi-fire',
     desc:  'Feijoada completa e autêntica, com todos os acompanhamentos tradicionais e um toque de sofisticação gourmet.',
     image: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80',
-    color: '#EC4899',
+    color: '#8B1E3F',
     badge: 'Sabor da tradição',
   },
   {
@@ -29,7 +29,7 @@ const specialties = [
     icon:  'bi-award',
     desc:  'Risotos cremosos preparados ao vivo com ingredientes premium. Do funghi trufado ao camarão gratinado.',
     image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=80',
-    color: '#F59E0B',
+    color: '#D9B97E',
     badge: 'Preparo ao vivo',
   },
   {
@@ -38,7 +38,7 @@ const specialties = [
     icon:  'bi-thermometer-high',
     desc:  'Carnes nobres selecionadas, temperadas com nossa marinada exclusiva e assadas no ponto perfeito para seu evento.',
     image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800&q=80',
-    color: '#EF4444',
+    color: '#A8844A',
     badge: 'Carnes premium',
   },
   {
@@ -47,7 +47,7 @@ const specialties = [
     icon:  'bi-stars',
     desc:  'Massas artesanais frescas com molhos especiais italianos. Penne, farfalle, rigatoni, ravioli e muito mais.',
     image: 'https://images.unsplash.com/photo-1555126634-323283e090fa?w=800&q=80',
-    color: '#A3E635',
+    color: '#C8A46B',
     badge: 'Culinária italiana',
   },
   {
@@ -56,7 +56,7 @@ const specialties = [
     icon:  'bi-gem',
     desc:  'Estrogonoff cremoso e sofisticado, preparado com cortes nobres e temperos especiais que conquistam todos os paladares.',
     image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80',
-    color: '#EC4899',
+    color: '#8B1E3F',
     badge: 'Receita especial',
   },
 ]
@@ -69,7 +69,7 @@ function SpecialtyCard({ item, index }: { item: typeof specialties[0]; index: nu
     <motion.div
       ref={ref}
       className="relative group rounded-2xl overflow-hidden cursor-pointer h-80 card-glow"
-      style={{ background: '#15152E' }}
+      style={{ background: '#0F0F0F' }}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
@@ -104,7 +104,7 @@ function SpecialtyCard({ item, index }: { item: typeof specialties[0]; index: nu
       {/* Badge */}
       <div className="absolute top-4 left-4">
         <span
-          className="text-[10px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full"
+          className="text-[9px] font-light uppercase tracking-widest px-3 py-1 rounded-full"
           style={{
             background: `${item.color}22`,
             color:       item.color,
@@ -126,7 +126,7 @@ function SpecialtyCard({ item, index }: { item: typeof specialties[0]; index: nu
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-6">
         <h3
-          className="text-2xl font-bold text-white mb-2 group-hover:text-gradient transition-all"
+          className="text-2xl font-medium text-white mb-2 group-hover:text-gradient transition-all"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           {item.title}
@@ -152,7 +152,7 @@ export default function Specialties() {
   const inView   = useInView(titleRef, { once: true })
 
   return (
-    <section id="especialidades" className="section-padding" style={{ background: '#0A0A1E' }}>
+    <section id="especialidades" className="section-padding relative bg-gradient-to-b from-[#0F0F0F]/30 to-[#0F0F0F]/10">
       <div className="max-w-7xl mx-auto">
 
         {/* Section Header */}
@@ -163,18 +163,18 @@ export default function Specialties() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-purple-light mb-4 block">
-            O que oferecemos
+          <span className="text-[10px] font-light uppercase tracking-[0.4em] text-purple-300 mb-4 block">
+            Experiência Gastronômica
           </span>
           <h2
-            className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-normal text-white mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Nossas{' '}
-            <span className="text-gradient">Especialidades</span>
+            Curadoria de{' '}
+            <span className="text-gradient font-semibold">Sabores</span>
           </h2>
-          <p className="text-lg text-white/50 max-w-xl mx-auto font-light">
-            Uma culinária pensada para impressionar.
+          <p className="text-sm md:text-base text-white/50 max-w-xl mx-auto font-light tracking-wide">
+            Um repertório elaborado para surpreender os paladares mais exigentes.
           </p>
           <div className="divider-gradient w-32 mx-auto mt-8" />
         </motion.div>

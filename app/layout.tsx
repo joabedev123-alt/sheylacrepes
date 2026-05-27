@@ -1,8 +1,5 @@
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
-import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 export const viewport: Viewport = {
   themeColor:   '#070714',
@@ -11,18 +8,17 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: {
-    default: 'Sheylacrepes — Buffet Gourmet Premium',
-    template: '%s | Sheylacrepes',
+  title:       'Sheylacrepes — Buffet Gourmet Premium',
+  description: 'Buffet premium especializado em Crepes, Feijoadas, Risotos, Massas e Eventos Gourmet. Atendemos São Paulo capital, interior e litoral. Solicite seu orçamento!',
+  keywords:    'buffet gourmet, crepes, feijoada, risoto, massas, churrasco, eventos, São Paulo, buffet premium',
+  authors:     [{ name: 'Sheylacrepes' }],
+  icons: {
+    icon:  '/logo sheyla-Photoroom.png',
+    apple: '/logo sheyla-Photoroom.png',
   },
-  description:
-    'Buffet premium especializado em Crepes, Feijoadas, Risotos, Massas e Eventos Gourmet. Atendemos São Paulo capital, interior e litoral.',
-  keywords:
-    'buffet gourmet, crepes, feijoada, risoto, massas, churrasco, eventos, São Paulo, buffet premium',
-  authors: [{ name: 'Sheylacrepes' }],
   openGraph: {
     title:       'Sheylacrepes — Buffet Gourmet Premium',
-    description: 'Sabor, sofisticação e experiências inesquecíveis.',
+    description: 'Sabor, sofisticação e experiências inesquecíveis. Buffet especializado em Crepes e muito mais.',
     type:        'website',
     locale:      'pt_BR',
   },
@@ -47,10 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className="bg-brand-dark text-white antialiased"
         style={{ fontFamily: "'Poppins', sans-serif" }}
       >
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppFloat />
+        {children}
       </body>
     </html>
   )

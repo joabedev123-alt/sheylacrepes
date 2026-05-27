@@ -18,7 +18,7 @@ const contactItems = [
     title: 'E-mail',
     value: 'Sheyla.silva@live.com',
     href:  'mailto:Sheyla.silva@live.com',
-    color: '#8B5CF6',
+    color: '#C8A46B',
     desc:  'Para orçamentos e informações detalhadas',
     cta:   'Enviar E-mail',
   },
@@ -27,7 +27,7 @@ const contactItems = [
     title: 'Instagram',
     value: '@sheylacrepes',
     href:  'https://www.instagram.com/sheylacrepes?igsh=cnNobjg3cTZjYnNy&utm_source=qr',
-    color: '#EC4899',
+    color: '#8B1E3F',
     desc:  'Veja fotos dos nossos eventos',
     cta:   'Seguir',
   },
@@ -51,7 +51,7 @@ export default function Contact() {
       className="section-padding"
       style={{
         background:
-          'linear-gradient(180deg, #070714 0%, #0E0E24 100%)',
+          'linear-gradient(180deg, #0F0F0F 0%, #0F0F0F 100%)',
       }}
     >
       <div className="max-w-6xl mx-auto">
@@ -64,7 +64,7 @@ export default function Contact() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-purple-light mb-4 block">
+          <span className="text-xs font-semibold uppercase tracking-[0.3em] text-brand-gold-light mb-4 block">
             Entre em contato
           </span>
           <h2
@@ -104,7 +104,7 @@ export default function Contact() {
                 className="group flex items-center gap-5 p-5 rounded-2xl transition-all duration-300 cursor-pointer hover:translate-x-1"
                 style={{
                   background: 'rgba(21,21,46,0.5)',
-                  border:     `1px solid rgba(139,92,246,0.15)`,
+                  border:     `1px solid rgba(200,164,107,0.15)`,
                 }}
               >
                 <div
@@ -123,15 +123,15 @@ export default function Contact() {
                   <div className="text-xs text-white/45 mt-0.5">{item.desc}</div>
                 </div>
                 <div
-                  className="text-xs font-semibold px-3 py-1.5 rounded-full sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 sm:translate-x-2 sm:group-hover:translate-x-0 flex-shrink-0"
+                  className="text-xs font-semibold px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0"
                   style={{
                     background: `${item.color}22`,
                     color:       item.color,
                     border:      `1px solid ${item.color}44`,
                   }}
                 >
-                  <span className="hidden sm:inline">{item.cta}</span>
-                  <i className="bi bi-arrow-right sm:ml-1.5" />
+                  {item.cta}
+                  <i className="bi bi-arrow-right ml-1.5" />
                 </div>
               </a>
             ))}
@@ -154,7 +154,7 @@ export default function Contact() {
               className="rounded-2xl p-6 mb-6"
               style={{
                 background: 'rgba(21,21,46,0.5)',
-                border:     '1px solid rgba(139,92,246,0.15)',
+                border:     '1px solid rgba(200,164,107,0.15)',
               }}
             >
               {regions.map((r, i) => (
@@ -163,7 +163,7 @@ export default function Contact() {
                   className={`flex items-center justify-between py-3 ${i < regions.length - 1 ? 'border-b border-white/5' : ''}`}
                 >
                   <div className="flex items-center gap-3">
-                    <i className={`${r.icon} text-base`} style={{ color: r.included ? '#A3E635' : '#6B7280' }} />
+                    <i className={`${r.icon} text-base`} style={{ color: r.included ? '#C8A46B' : '#6B7280' }} />
                     <span className={`text-sm ${r.included ? 'text-white/80' : 'text-white/40'}`}>
                       {r.name}
                     </span>
@@ -186,11 +186,11 @@ export default function Contact() {
             <div
               className="rounded-2xl p-6 text-center"
               style={{
-                background: 'linear-gradient(135deg, rgba(139,92,246,0.12), rgba(236,72,153,0.12))',
-                border:     '1px solid rgba(139,92,246,0.25)',
+                background: 'linear-gradient(135deg, rgba(200,164,107,0.12), rgba(139,30,63,0.12))',
+                border:     '1px solid rgba(200,164,107,0.25)',
               }}
             >
-              <i className="bi bi-geo-alt-fill text-3xl text-brand-purple-light mb-3 block" />
+              <i className="bi bi-geo-alt-fill text-3xl text-brand-gold-light mb-3 block" />
               <h4
                 className="font-bold text-white mb-2"
                 style={{ fontFamily: "'Playfair Display', serif" }}
