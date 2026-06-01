@@ -9,6 +9,7 @@ import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import WhatsAppFloat from '@/components/WhatsAppFloat'
 import SplashScreen from '@/components/SplashScreen'
+import Portfolio from '@/components/Portfolio'
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
         <Specialties />
         <MenuSection />
         <Differentials />
+        <Portfolio />
         <QuoteForm />
         <Contact />
       </main>

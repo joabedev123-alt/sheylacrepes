@@ -4,7 +4,18 @@ import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 import Image from 'next/image'
 
-const specialties = [
+type Specialty = {
+  id: string;
+  title: string;
+  icon: string;
+  desc: string;
+  image: string;
+  color: string;
+  badge: string;
+  link?: string;
+};
+
+const specialties: Specialty[] = [
   {
     id:    'crepes',
     title: 'Crepes',
@@ -13,6 +24,7 @@ const specialties = [
     image: 'https://images.unsplash.com/photo-1519676867240-f03562e64548?w=800&q=80',
     color: '#C8A46B',
     badge: 'Especialidade principal',
+    link:  'https://linkfacil.me/sheylacrepes/ci/crepes-YMzpkNO6',
   },
   {
     id:    'feijoada',
@@ -22,6 +34,7 @@ const specialties = [
     image: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=800&q=80',
     color: '#8B1E3F',
     badge: 'Sabor da tradição',
+    link:  'https://linkfacil.me/sheylacrepes/ci/feijoada-XI4C5T09',
   },
   {
     id:    'risotos',
@@ -31,6 +44,7 @@ const specialties = [
     image: 'https://images.unsplash.com/photo-1476124369491-e7addf5db371?w=800&q=80',
     color: '#D9B97E',
     badge: 'Preparo ao vivo',
+    link:  'https://linkfacil.me/sheylacrepes/ci/risoto-s3QfzhXd',
   },
   {
     id:    'churrasco',
@@ -40,6 +54,7 @@ const specialties = [
     image: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=800&q=80',
     color: '#A8844A',
     badge: 'Carnes premium',
+    link:  'https://linkfacil.me/sheylacrepes/ci/churrasco-G2JQsHe4',
   },
   {
     id:    'massas',
@@ -49,6 +64,7 @@ const specialties = [
     image: 'https://images.unsplash.com/photo-1555126634-323283e090fa?w=800&q=80',
     color: '#C8A46B',
     badge: 'Culinária italiana',
+    link:  'https://linkfacil.me/sheylacrepes/ci/massas-7aJVq1n5',
   },
   {
     id:    'estrogonoff',
@@ -58,16 +74,28 @@ const specialties = [
     image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&q=80',
     color: '#8B1E3F',
     badge: 'Receita especial',
+    link:  'https://linkfacil.me/sheylacrepes/ci/estrogonoff-AxUrWWxB',
   },
 ]
 
-function SpecialtyCard({ item, index }: { item: typeof specialties[0]; index: number }) {
+function SpecialtyCard({ item, index }: { item: Specialty; index: number }) {
   const ref    = useRef<HTMLDivElement>(null)
   const inView = useInView(ref, { once: true, margin: '-80px' })
+
+  const handleCardClick = () => {
+    if (item.link) {
+      window.open(item.link, '_blank');
+    } else {
+      const event = new CustomEvent('openMenuTab', { detail: item.id });
+      window.dispatchEvent(event);
+      document.getElementById('cardapios')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <motion.div
       ref={ref}
+      onClick={handleCardClick}
       className="relative group rounded-2xl overflow-hidden cursor-pointer h-80 card-glow"
       style={{ background: '#0F0F0F' }}
       initial={{ opacity: 0, y: 50 }}

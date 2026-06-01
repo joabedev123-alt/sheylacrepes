@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { motion, useInView, AnimatePresence } from 'framer-motion'
 
 /* ── Data ─────────────────────────────────────────── */
@@ -366,6 +366,17 @@ export default function MenuSection() {
   const inView   = useInView(titleRef, { once: true })
 
   const current = menuData[active]
+
+  useEffect(() => {
+    const handleOpenTab = (e: Event) => {
+      const customEvent = e as CustomEvent<MenuKey>;
+      if (customEvent.detail && menuData[customEvent.detail]) {
+        setActive(customEvent.detail);
+      }
+    };
+    window.addEventListener('openMenuTab', handleOpenTab);
+    return () => window.removeEventListener('openMenuTab', handleOpenTab);
+  }, []);
 
   return (
     <section id="cardapios" className="section-padding" style={{ background: '#0F0F0F' }}>
