@@ -198,7 +198,7 @@ export default function Hero() {
         >
           {[
             { value: '10+', label: 'Anos de experiência' },
-            { value: '500+', label: 'Eventos realizados' },
+            { value: '5000+', label: 'Eventos realizados' },
             { value: '6',    label: 'Especialidades' },
             { value: '100%', label: 'Satisfação garantida' },
           ].map((stat) => (
