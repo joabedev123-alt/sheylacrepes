@@ -71,7 +71,7 @@ const menuData = {
   feijoada: {
     icon:  'bi-fire',
     color: '#8B1E3F',
-    price: 'R$ 75,00 / pessoa',
+    price: 'R$ 120,00 / pessoa',
     info:  ['4 horas de evento', 'Mínimo 30 pessoas', 'Serviço completo incluso', 'Frete sob consulta'],
     sections: [
       {
@@ -134,8 +134,8 @@ const menuData = {
   risotos: {
     icon:  'bi-award',
     color: '#D9B97E',
-    price: 'R$ 80,00 / pessoa',
-    info:  ['Preparo ao vivo', 'Mínimo 25 pessoas', 'Equipamentos inclusos', 'Frete sob consulta'],
+    price: 'R$ 100,00 / pessoa',
+    info:  ['4 horas de evento', 'Mínimo 30 pessoas', 'Equipamentos inclusos', 'Frete sob consulta'],
     sections: [
       {
         title: 'Sabores de Risoto',
@@ -178,8 +178,8 @@ const menuData = {
   churrasco: {
     icon:  'bi-thermometer-high',
     color: '#A8844A',
-    price: 'R$ 90,00 / pessoa',
-    info:  ['4-5 horas de evento', 'Mínimo 30 pessoas', 'Churrasqueiro incluso', 'Frete sob consulta'],
+    price: 'R$ 120,00 / pessoa',
+    info:  ['4 horas de evento', 'Mínimo 30 pessoas', 'Churrasqueiro incluso', 'Frete sob consulta'],
     sections: [
       {
         title: 'Carnes Premium',
@@ -233,8 +233,8 @@ const menuData = {
   massas: {
     icon:  'bi-stars',
     color: '#C8A46B',
-    price: 'R$ 70,00 / pessoa',
-    info:  ['3-4 horas de evento', 'Mínimo 25 pessoas', 'Macarronada inclusa', 'Frete sob consulta'],
+    price: 'R$ 100,00 / pessoa',
+    info:  ['4 horas de evento', 'Mínimo 30 pessoas', 'Macarronada inclusa', 'Frete sob consulta'],
     sections: [
       {
         title: 'Massas Secas',
@@ -293,16 +293,65 @@ const menuData = {
       },
     ],
   },
+  strogonoff: {
+    icon:  'bi-bowl-hot',
+    color: '#C8A46B',
+    price: 'R$ 100,00 / pessoa',
+    info:  ['4 horas de evento', 'Mínimo 30 pessoas', 'Preparo ao vivo', 'Frete sob consulta'],
+    sections: [
+      {
+        title: 'Strogonoff',
+        items: [
+          { name: 'Strogonoff de Frango', desc: 'Frango desfiado ao creme de leite com champignon e ketchup artesanal' },
+          { name: 'Strogonoff de Carne', desc: 'Filé mignon em tiras ao molho cremoso com champignon' },
+          { name: 'Strogonoff de Camarão', desc: 'Camarão ao molho rosé cremoso com champignon fresco' },
+        ],
+      },
+      {
+        title: 'Acompanhamentos',
+        items: [
+          { name: 'Arroz Branco', desc: 'Arroz soltinho temperado na manteiga' },
+          { name: 'Batata Palha Artesanal', desc: 'Batata palha crocante frita na hora' },
+          { name: 'Arroz à Grega', desc: 'Arroz com legumes frescos e temperos especiais' },
+        ],
+      },
+      {
+        title: 'Entradas',
+        items: [
+          { name: 'Salada Verde', desc: 'Mix de folhas frescas com tomate-cereja e vinagrete' },
+          { name: 'Pão de Alho', desc: 'Pão italiano com manteiga de alho e ervas frescas' },
+          { name: 'Caldo de Mandioca', desc: 'Caldo cremoso com mandioca e temperos especiais' },
+        ],
+      },
+      {
+        title: 'Sobremesas',
+        items: [
+          { name: 'Pudim de Leite', desc: 'Receita artesanal de leite condensado' },
+          { name: 'Brigadeiro Gourmet', desc: 'Brigadeiro artesanal em formatos especiais' },
+          { name: 'Mousse de Maracujá', desc: 'Mousse leve com calda de maracujá fresco' },
+        ],
+      },
+      {
+        title: 'Bebidas',
+        items: [
+          { name: 'Refrigerantes', desc: 'Linha completa gelada' },
+          { name: 'Suco Natural', desc: 'Laranja, limão ou maracujá' },
+          { name: 'Água Mineral', desc: 'Com e sem gás bem gelada' },
+        ],
+      },
+    ],
+  },
 }
 
 type MenuKey = keyof typeof menuData
 
 const tabs: { key: MenuKey; label: string; icon: string }[] = [
-  { key: 'crepes',    label: 'Crepes',    icon: 'bi-egg-fried' },
-  { key: 'feijoada',  label: 'Feijoada',  icon: 'bi-fire' },
-  { key: 'risotos',   label: 'Risotos',   icon: 'bi-award' },
-  { key: 'churrasco', label: 'Churrasco', icon: 'bi-thermometer-high' },
-  { key: 'massas',    label: 'Massas',    icon: 'bi-stars' },
+  { key: 'crepes',     label: 'Crepes',     icon: 'bi-egg-fried' },
+  { key: 'feijoada',   label: 'Feijoada',   icon: 'bi-fire' },
+  { key: 'risotos',    label: 'Risotos',    icon: 'bi-award' },
+  { key: 'churrasco',  label: 'Churrasco',  icon: 'bi-thermometer-high' },
+  { key: 'massas',     label: 'Massas',     icon: 'bi-stars' },
+  { key: 'strogonoff', label: 'Strogonoff', icon: 'bi-bowl-hot' },
 ]
 
 /* ── Accordion Item ───────────────────────────────── */

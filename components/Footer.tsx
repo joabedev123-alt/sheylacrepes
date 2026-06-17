@@ -1,4 +1,3 @@
-import Link from 'next/link'
 
 const quickLinks = [
   { href: '#inicio',         label: 'Início' },
@@ -11,11 +10,11 @@ const quickLinks = [
 
 const specialtiesLinks = [
   { href: '#cardapios', label: 'Crepes' },
-  { href: '#cardapios', label: 'Feijoada' },
-  { href: '#cardapios', label: 'Risotos' },
-  { href: '#cardapios', label: 'Churrasco' },
   { href: '#cardapios', label: 'Massas' },
-  { href: '#cardapios', label: 'Estrogonoff' },
+  { href: '#cardapios', label: 'Churrasco' },
+  { href: '#cardapios', label: 'Feijoada' },
+  { href: '#cardapios', label: 'Risoto' },
+  { href: '#cardapios', label: 'Estrogonofe' },
 ]
 
 export default function Footer() {
@@ -142,14 +141,33 @@ export default function Footer() {
             <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-brand-gold mb-4">
               Contato
             </h4>
-            <div className="space-y-2">
+            <div className="space-y-2.5">
+              <div className="text-[11px] text-white/60 font-semibold tracking-wider uppercase">
+                Sheyla e Marcelo
+              </div>
+              <div className="flex items-center gap-2 text-xs text-white/40">
+                <i className="bi bi-telephone-fill text-brand-gold" />
+                <a href="tel:1126132554" className="hover:text-white transition-colors">Fixo: (11) 2613-2554</a>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-white/40">
+                <i className="bi bi-whatsapp text-[#25D366]" />
+                <a href="https://wa.me/5511913672688" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Sheyla: (11) 91367-2688</a>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-white/40">
+                <i className="bi bi-whatsapp text-[#25D366]" />
+                <a href="https://wa.me/5511947948423" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Marcelo: (11) 94794-8423</a>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-white/40">
+                <i className="bi bi-whatsapp text-[#25D366]" />
+                <a href="https://wa.me/5511915499514" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Atendimento: (11) 91549-9514</a>
+              </div>
               <div className="flex items-center gap-2 text-xs text-white/40">
                 <i className="bi bi-telephone text-brand-gold" />
-                <span>(11) 91367-2688</span>
+                <a href="tel:11967938117" className="hover:text-white transition-colors">Celular: (11) 96793-8117</a>
               </div>
               <div className="flex items-center gap-2 text-xs text-white/40">
                 <i className="bi bi-envelope text-brand-gold" />
-                <span>Sheyla.silva@live.com</span>
+                <span>Sheylacrepes@outlook.com</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-white/40">
                 <i className="bi bi-geo-alt text-brand-gold" />
@@ -169,10 +187,18 @@ export default function Footer() {
               <span className="text-gradient-brand font-semibold">Sheylacrepes</span>{' '}
               — Buffet Gourmet Premium. Todos os direitos reservados.
             </div>
-            <div className="flex items-center gap-1 text-xs text-white/25">
-              <span>Feito com</span>
-              <i className="bi bi-heart-fill text-brand-wine/60" />
-              <span>para eventos inesquecíveis</span>
+            <div className="flex items-center gap-1 text-xs text-white/40">
+              <span>Produzida com</span>
+              <span>💚</span>
+              <span>por</span>
+              <a
+                href="https://camaly.com.br/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-white/60 hover:text-white transition-colors duration-200"
+              >
+                CAMALY
+              </a>
             </div>
           </div>
         </div>

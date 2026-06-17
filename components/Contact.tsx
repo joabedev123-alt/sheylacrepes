@@ -3,33 +3,53 @@
 import { useRef } from 'react'
 import { motion, useInView } from 'framer-motion'
 
-const contactItems = [
+interface ContactChannel {
+  icon: string
+  title: string
+  color: string
+  desc: string
+  links: { label: string; value: string; href: string; type: 'whatsapp' | 'tel' | 'email' | 'instagram' }[]
+}
+
+const contactChannels: ContactChannel[] = [
   {
     icon:  'bi-whatsapp',
-    title: 'WhatsApp',
-    value: '(11) 91367-2688',
-    href:  'https://wa.me/5511913672688',
+    title: 'WhatsApp (Sheyla e Marcelo)',
     color: '#25D366',
-    desc:  'Atendimento rápido via WhatsApp',
-    cta:   'Enviar Mensagem',
+    desc:  'Atendimento rápido e orçamentos de buffet',
+    links: [
+      { label: 'Sheyla', value: '(11) 91367-2688', href: 'https://wa.me/5511913672688', type: 'whatsapp' },
+      { label: 'Marcelo', value: '(11) 94794-8423', href: 'https://wa.me/5511947948423', type: 'whatsapp' },
+      { label: 'Atendimento', value: '(11) 91549-9514', href: 'https://wa.me/5511915499514', type: 'whatsapp' },
+    ],
+  },
+  {
+    icon:  'bi-telephone-fill',
+    title: 'Telefones de Contato',
+    color: '#38BDF8',
+    desc:  'Atendimento direto e telefone fixo',
+    links: [
+      { label: 'Telefone Fixo', value: '(11) 2613-2554', href: 'tel:1126132554', type: 'tel' },
+      { label: 'Celular', value: '(11) 96793-8117', href: 'tel:11967938117', type: 'tel' },
+    ],
   },
   {
     icon:  'bi-envelope-fill',
     title: 'E-mail',
-    value: 'Sheyla.silva@live.com',
-    href:  'mailto:Sheyla.silva@live.com',
     color: '#C8A46B',
-    desc:  'Para orçamentos e informações detalhadas',
-    cta:   'Enviar E-mail',
+    desc:  'Para orçamentos formais e contratos',
+    links: [
+      { label: 'E-mail', value: 'Sheylacrepes@outlook.com', href: 'mailto:Sheylacrepes@outlook.com', type: 'email' },
+    ],
   },
   {
     icon:  'bi-instagram',
     title: 'Instagram',
-    value: '@sheylacrepes',
-    href:  'https://www.instagram.com/sheylacrepes?igsh=cnNobjg3cTZjYnNy&utm_source=qr',
     color: '#8B1E3F',
-    desc:  'Veja fotos dos nossos eventos',
-    cta:   'Seguir',
+    desc:  'Siga nosso perfil e acompanhe nosso trabalho',
+    links: [
+      { label: 'Instagram', value: '@sheylacrepes', href: 'https://www.instagram.com/sheylacrepes?igsh=cnNobjg3cTZjYnNy&utm_source=qr', type: 'instagram' },
+    ],
   },
 ]
 
@@ -95,45 +115,61 @@ export default function Contact() {
               Nossos Canais
             </h3>
 
-            {contactItems.map((item) => (
-              <a
-                key={item.title}
-                href={item.href}
-                target={item.href.startsWith('http') ? '_blank' : undefined}
-                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="group flex items-center gap-5 p-5 rounded-2xl transition-all duration-300 cursor-pointer hover:translate-x-1"
+            {contactChannels.map((channel) => (
+              <div
+                key={channel.title}
+                className="flex flex-col sm:flex-row items-start gap-5 p-5 rounded-2xl transition-all duration-300"
                 style={{
                   background: 'rgba(21,21,46,0.5)',
                   border:     `1px solid rgba(200,164,107,0.15)`,
                 }}
               >
                 <div
-                  className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 group-hover:scale-110"
-                  style={{ background: `${item.color}18`, border: `1px solid ${item.color}33` }}
+                  className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: `${channel.color}18`, border: `1px solid ${channel.color}33` }}
                 >
-                  <i className={`${item.icon} text-2xl`} style={{ color: item.color }} />
+                  <i className={`${channel.icon} text-2xl`} style={{ color: channel.color }} />
                 </div>
-                <div className="flex-1">
-                  <div className="text-xs text-white/40 uppercase tracking-widest mb-0.5">
-                    {item.title}
+                <div className="flex-1 w-full">
+                  <div className="text-xs text-white/40 uppercase tracking-widest mb-1">
+                    {channel.title}
                   </div>
-                  <div className="font-semibold text-white group-hover:text-gradient transition-all">
-                    {item.value}
+                  <div className="text-xs text-white/45 mb-3">{channel.desc}</div>
+                  <div className="flex flex-col gap-2">
+                    {channel.links.map((link) => (
+                      <a
+                        key={link.value}
+                        href={link.href}
+                        target={link.href.startsWith('http') ? '_blank' : undefined}
+                        rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                        className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-200 cursor-pointer group/item"
+                      >
+                        <span className="text-xs font-semibold text-white/80">
+                          {link.label}: <span className="text-white font-bold ml-1">{link.value}</span>
+                        </span>
+                        <span
+                          className="text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider flex items-center gap-1 transition-all"
+                          style={{
+                            background: `${channel.color}22`,
+                            color:       channel.color,
+                            border:      `1px solid ${channel.color}44`,
+                          }}
+                        >
+                          {link.type === 'whatsapp' ? (
+                            <><i className="bi bi-whatsapp" /> Conectar</>
+                          ) : link.type === 'tel' ? (
+                            <><i className="bi bi-telephone-fill" /> Ligar</>
+                          ) : link.type === 'email' ? (
+                            <><i className="bi bi-envelope-fill" /> Enviar</>
+                          ) : (
+                            <><i className="bi bi-instagram" /> Acessar</>
+                          )}
+                        </span>
+                      </a>
+                    ))}
                   </div>
-                  <div className="text-xs text-white/45 mt-0.5">{item.desc}</div>
                 </div>
-                <div
-                  className="text-xs font-semibold px-3 py-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0"
-                  style={{
-                    background: `${item.color}22`,
-                    color:       item.color,
-                    border:      `1px solid ${item.color}44`,
-                  }}
-                >
-                  {item.cta}
-                  <i className="bi bi-arrow-right ml-1.5" />
-                </div>
-              </a>
+              </div>
             ))}
           </motion.div>
 
