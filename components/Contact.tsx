@@ -120,7 +120,7 @@ export default function Contact() {
                 key={channel.title}
                 className="flex flex-col sm:flex-row items-start gap-5 p-5 rounded-2xl transition-all duration-300"
                 style={{
-                  background: 'rgba(21,21,46,0.5)',
+                  background: 'rgba(var(--color-bg-rgb), 0.5)',
                   border:     `1px solid rgba(200,164,107,0.15)`,
                 }}
               >
@@ -189,7 +189,7 @@ export default function Contact() {
             <div
               className="rounded-2xl p-6 mb-6"
               style={{
-                background: 'rgba(21,21,46,0.5)',
+                background: 'rgba(var(--color-bg-rgb), 0.5)',
                 border:     '1px solid rgba(200,164,107,0.15)',
               }}
             >

@@ -95,7 +95,7 @@ function RadioGroup({
           key={opt.value}
           className="flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer transition-all duration-200"
           style={{
-            background: value === opt.value ? 'rgba(200,164,107,0.2)' : 'rgba(21,21,46,0.5)',
+            background: value === opt.value ? 'rgba(200,164,107,0.2)' : 'rgba(var(--color-bg-rgb), 0.5)',
             border:     `1px solid ${value === opt.value ? 'rgba(200,164,107,0.6)' : 'rgba(200,164,107,0.2)'}`,
           }}
         >
@@ -139,7 +139,7 @@ function CheckboxField({
       <div
         className="w-5 h-5 rounded flex items-center justify-center transition-all duration-200 flex-shrink-0"
         style={{
-          background: checked ? 'rgba(200,164,107,0.3)' : 'rgba(14,14,36,0.8)',
+          background: checked ? 'rgba(200,164,107,0.3)' : 'rgba(var(--color-bg-rgb), 0.8)',
           border:     `1.5px solid ${checked ? '#C8A46B' : 'rgba(200,164,107,0.3)'}`,
         }}
       >
@@ -337,7 +337,7 @@ ${data.observacoes || 'Nenhuma observação.'}`;
         <motion.div
           className="rounded-3xl p-6 sm:p-10"
           style={{
-            background:   'rgba(14,14,36,0.7)',
+            background:   'rgba(var(--color-bg-rgb), 0.7)',
             backdropFilter: 'blur(20px)',
             border:       '1px solid rgba(200,164,107,0.2)',
             boxShadow:    '0 25px 80px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.04)',

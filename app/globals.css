@@ -23,8 +23,8 @@
   --color-bg-4:        #E5E7EB;
   --color-text:        #111827;
   --color-text-muted:  #4B5563;
-  --color-cream:       #F5F1EA;
-  --color-muted:       #9CA3AF;
+  --color-cream:       #8B1E3F; /* vinho em modo claro para destacar */
+  --color-muted:       #6B7280; /* cinza mais escuro */
   --color-border:      #E5E7EB;
   --color-border-glow: rgba(200, 164, 107, 0.4);
 

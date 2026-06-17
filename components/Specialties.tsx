@@ -117,7 +117,7 @@ function SpecialtyCard({ item, index }: { item: Specialty; index: number }) {
       <div
         className="absolute inset-0 transition-opacity duration-500"
         style={{
-          background: `linear-gradient(to top, rgba(7,7,20,0.97) 0%, rgba(7,7,20,0.6) 50%, rgba(7,7,20,0.15) 100%)`,
+          background: `linear-gradient(to top, rgba(var(--color-bg-rgb), 0.97) 0%, rgba(var(--color-bg-rgb), 0.6) 50%, rgba(var(--color-bg-rgb), 0.15) 100%)`,
         }}
       />
 

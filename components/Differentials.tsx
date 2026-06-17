@@ -62,7 +62,7 @@ function DifferentialCard({ item, index }: { item: typeof differentials[0]; inde
     <motion.div
       ref={ref}
       className="group p-6 rounded-2xl card-glow cursor-default"
-      style={{ background: 'rgba(21,21,46,0.5)', border: '1px solid rgba(200,164,107,0.15)' }}
+      style={{ background: 'rgba(var(--color-bg-rgb), 0.5)', border: '1px solid rgba(200,164,107,0.15)' }}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.55, delay: index * 0.07 }}

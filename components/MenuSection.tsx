@@ -476,7 +476,7 @@ function AccordionSection({
   const [open, setOpen] = useState(false)
 
   return (
-    <div className="rounded-xl overflow-hidden mb-3" style={{ background: 'rgba(21,21,46,0.6)', border: `1px solid ${open ? accent + '44' : 'rgba(200,164,107,0.15)'}` }}>
+    <div className="rounded-xl overflow-hidden mb-3" style={{ background: 'rgba(var(--color-bg-rgb), 0.6)', border: `1px solid ${open ? accent + '44' : 'rgba(200,164,107,0.15)'}` }}>
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between px-5 py-4 text-left cursor-pointer group transition-colors"
@@ -576,7 +576,7 @@ export default function MenuSection() {
                 onClick={() => setActive(tab.key)}
                 className="flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 cursor-pointer"
                 style={{
-                  background: isActive ? `linear-gradient(135deg, ${data.color}33, ${data.color}18)` : 'rgba(21,21,46,0.6)',
+                  background: isActive ? `linear-gradient(135deg, ${data.color}33, ${data.color}18)` : 'rgba(var(--color-bg-rgb), 0.6)',
                   border:     `1px solid ${isActive ? data.color + '66' : 'rgba(200,164,107,0.2)'}`,
                   color:      isActive ? data.color : '#9CA3AF',
                   boxShadow:  isActive ? `0 0 20px ${data.color}22` : 'none',
