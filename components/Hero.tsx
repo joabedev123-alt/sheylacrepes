@@ -91,7 +91,7 @@ export default function Hero() {
     <section
       id="inicio"
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
-      style={{ background: '#0F0F0F' }}
+      style={{ background: 'var(--color-bg)' }}
     >
       {/* Background image with parallax */}
       <div
@@ -107,7 +107,7 @@ export default function Hero() {
       />
 
       {/* Gradient overlay — escuro gourmet */}
-      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(15,15,15,0.20) 0%, rgba(15,15,15,0.55) 100%)' }} />
+      <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(var(--color-bg-rgb, 15, 15, 15),0.20) 0%, rgba(var(--color-bg-rgb, 15, 15, 15),0.55) 100%)' }} />
       <div
         className="absolute inset-0"
         style={{
@@ -145,17 +145,17 @@ export default function Hero() {
           transition={{ delay: 0.5, duration: 0.8, ease: 'easeOut' }}
         >
           <span className="block mb-1">
-            <span className="text-white">Sabor, </span>
+            <span className="text-[var(--color-text)]">Sabor, </span>
             <span className="shimmer-text">sofisticação</span>
           </span>
-          <span className="block text-white/90 text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-1 font-bold italic">
+          <span className="block text-[var(--color-text)]/90 text-3xl sm:text-4xl md:text-5xl lg:text-6xl mt-1 font-bold italic">
             e experiências inesquecíveis.
           </span>
         </motion.h1>
 
         {/* Subtitle */}
         <motion.p
-          className="text-base sm:text-lg md:text-xl text-white/65 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
+          className="text-base sm:text-lg md:text-xl text-[var(--color-text)]/65 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.7, duration: 0.7 }}
@@ -209,7 +209,7 @@ export default function Hero() {
               >
                 {stat.value}
               </div>
-              <div className="text-xs text-white/45 uppercase tracking-widest mt-1">
+              <div className="text-xs text-[var(--color-text)]/45 uppercase tracking-widest mt-1">
                 {stat.label}
               </div>
             </div>

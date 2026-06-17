@@ -73,10 +73,10 @@ function DifferentialCard({ item, index }: { item: typeof differentials[0]; inde
       >
         <i className={`${item.icon} text-xl`} style={{ color: item.color }} />
       </div>
-      <h3 className="font-bold text-base text-white mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>
+      <h3 className="font-bold text-base text-[var(--color-text)] mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>
         {item.title}
       </h3>
-      <p className="text-xs text-white/50 leading-relaxed">{item.desc}</p>
+      <p className="text-xs text-[var(--color-text)]/50 leading-relaxed">{item.desc}</p>
       <div
         className="h-0.5 w-0 group-hover:w-full rounded-full mt-4 transition-all duration-500"
         style={{ background: `linear-gradient(90deg, ${item.color}, transparent)` }}
@@ -94,7 +94,7 @@ export default function Differentials() {
       id="diferenciais"
       className="section-padding"
       style={{
-        background: '#0F0F0F',
+        background: 'var(--color-bg)',
         backgroundImage:
           'radial-gradient(ellipse at 50% 0%, rgba(200,164,107,0.08) 0%, transparent 60%)',
       }}
@@ -113,12 +113,12 @@ export default function Differentials() {
             Por que nos escolher
           </span>
           <h2
-            className="text-4xl md:text-5xl font-black text-white mb-4"
+            className="text-4xl md:text-5xl font-black text-[var(--color-text)] mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Nossos <span className="text-gradient">Diferenciais</span>
           </h2>
-          <p className="text-base text-white/50 max-w-md mx-auto font-light">
+          <p className="text-base text-[var(--color-text)]/50 max-w-md mx-auto font-light">
             Comprometidos em entregar muito mais do que gastronomia — entregamos momentos.
           </p>
           <div className="divider-gradient w-24 mx-auto mt-8" />

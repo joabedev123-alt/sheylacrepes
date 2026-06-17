@@ -507,8 +507,8 @@ function AccordionSection({
               >
                 <div className="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: accent }} />
                 <div>
-                  <div className="text-sm font-semibold text-white/90">{item.name}</div>
-                  <div className="text-xs text-white/45 mt-0.5 leading-relaxed whitespace-pre-line">{item.desc}</div>
+                  <div className="text-sm font-semibold text-[var(--color-text)]/90">{item.name}</div>
+                  <div className="text-xs text-[var(--color-text)]/45 mt-0.5 leading-relaxed whitespace-pre-line">{item.desc}</div>
                 </div>
               </div>
             ))}
@@ -539,7 +539,7 @@ export default function MenuSection() {
   }, []);
 
   return (
-    <section id="cardapios" className="section-padding" style={{ background: '#0F0F0F' }}>
+    <section id="cardapios" className="section-padding" style={{ background: 'var(--color-bg)' }}>
       <div className="max-w-5xl mx-auto">
 
         {/* Header */}
@@ -554,12 +554,12 @@ export default function MenuSection() {
             Menu completo
           </span>
           <h2
-            className="text-4xl md:text-5xl font-black text-white mb-4"
+            className="text-4xl md:text-5xl font-black text-[var(--color-text)] mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Nossos <span className="text-gradient-accent">Cardápios</span>
           </h2>
-          <p className="text-base text-white/50 max-w-md mx-auto font-light">
+          <p className="text-base text-[var(--color-text)]/50 max-w-md mx-auto font-light">
             Selecione a especialidade e explore o cardápio completo.
           </p>
           <div className="divider-gradient w-24 mx-auto mt-8" />
@@ -615,7 +615,7 @@ export default function MenuSection() {
                   >
                     {current.price}
                   </div>
-                  <div className="text-xs text-white/40">por pessoa</div>
+                  <div className="text-xs text-[var(--color-text)]/40">por pessoa</div>
                 </div>
               </div>
               <div className="flex flex-wrap gap-2">

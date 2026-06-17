@@ -9,16 +9,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        white: 'rgb(var(--text-primary) / <alpha-value>)',
         brand: {
           gold:        '#C8A46B',
           'gold-light': '#D9B97E',
           'gold-dark':  '#A8844A',
           wine:        '#8B1E3F',
           'wine-light': '#A02449',
-          dark:        '#0F0F0F',
-          'dark-2':    '#181818',
-          'dark-3':    '#222222',
-          'dark-4':    '#2A2A2A',
+          dark:        'rgb(var(--color-bg) / <alpha-value>)',
+          'dark-2':    'rgb(var(--color-bg-2) / <alpha-value>)',
+          'dark-3':    'rgb(var(--color-bg-3) / <alpha-value>)',
+          'dark-4':    'rgb(var(--color-bg-4) / <alpha-value>)',
           cream:       '#F5F1EA',
           muted:       '#B8B8B8',
         },

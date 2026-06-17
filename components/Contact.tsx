@@ -71,7 +71,7 @@ export default function Contact() {
       className="section-padding"
       style={{
         background:
-          'linear-gradient(180deg, #0F0F0F 0%, #0F0F0F 100%)',
+          'linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg) 100%)',
       }}
     >
       <div className="max-w-6xl mx-auto">
@@ -88,12 +88,12 @@ export default function Contact() {
             Entre em contato
           </span>
           <h2
-            className="text-4xl md:text-5xl font-black text-white mb-4"
+            className="text-4xl md:text-5xl font-black text-[var(--color-text)] mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Vamos <span className="text-gradient">Conversar</span>?
           </h2>
-          <p className="text-base text-white/50 max-w-md mx-auto font-light">
+          <p className="text-base text-[var(--color-text)]/50 max-w-md mx-auto font-light">
             Estamos prontos para tornar o seu evento inesquecível. Entre em contato agora!
           </p>
           <div className="divider-gradient w-24 mx-auto mt-8" />
@@ -109,7 +109,7 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.2 }}
           >
             <h3
-              className="text-xl font-bold text-white/80 mb-6"
+              className="text-xl font-bold text-[var(--color-text)]/80 mb-6"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Nossos Canais
@@ -131,10 +131,10 @@ export default function Contact() {
                   <i className={`${channel.icon} text-2xl`} style={{ color: channel.color }} />
                 </div>
                 <div className="flex-1 w-full">
-                  <div className="text-xs text-white/40 uppercase tracking-widest mb-1">
+                  <div className="text-xs text-[var(--color-text)]/40 uppercase tracking-widest mb-1">
                     {channel.title}
                   </div>
-                  <div className="text-xs text-white/45 mb-3">{channel.desc}</div>
+                  <div className="text-xs text-[var(--color-text)]/45 mb-3">{channel.desc}</div>
                   <div className="flex flex-col gap-2">
                     {channel.links.map((link) => (
                       <a
@@ -144,8 +144,8 @@ export default function Contact() {
                         rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                         className="flex items-center justify-between p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-200 cursor-pointer group/item"
                       >
-                        <span className="text-xs font-semibold text-white/80">
-                          {link.label}: <span className="text-white font-bold ml-1">{link.value}</span>
+                        <span className="text-xs font-semibold text-[var(--color-text)]/80">
+                          {link.label}: <span className="text-[var(--color-text)] font-bold ml-1">{link.value}</span>
                         </span>
                         <span
                           className="text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider flex items-center gap-1 transition-all"
@@ -180,7 +180,7 @@ export default function Contact() {
             transition={{ duration: 0.7, delay: 0.4 }}
           >
             <h3
-              className="text-xl font-bold text-white/80 mb-6"
+              className="text-xl font-bold text-[var(--color-text)]/80 mb-6"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               Área de Atendimento
@@ -200,7 +200,7 @@ export default function Contact() {
                 >
                   <div className="flex items-center gap-3">
                     <i className={`${r.icon} text-base`} style={{ color: r.included ? '#C8A46B' : '#6B7280' }} />
-                    <span className={`text-sm ${r.included ? 'text-white/80' : 'text-white/40'}`}>
+                    <span className={`text-sm ${r.included ? 'text-[var(--color-text)]/80' : 'text-[var(--color-text)]/40'}`}>
                       {r.name}
                     </span>
                   </div>
@@ -210,7 +210,7 @@ export default function Contact() {
                       Disponível
                     </span>
                   ) : (
-                    <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-white/40 border border-white/10">
+                    <span className="text-xs px-2.5 py-1 rounded-full bg-white/5 text-[var(--color-text)]/40 border border-white/10">
                       {r.note}
                     </span>
                   )}
@@ -228,12 +228,12 @@ export default function Contact() {
             >
               <i className="bi bi-geo-alt-fill text-3xl text-brand-gold-light mb-3 block" />
               <h4
-                className="font-bold text-white mb-2"
+                className="font-bold text-[var(--color-text)] mb-2"
                 style={{ fontFamily: "'Playfair Display', serif" }}
               >
                 Seu evento não está na lista?
               </h4>
-              <p className="text-xs text-white/50 mb-4">
+              <p className="text-xs text-[var(--color-text)]/50 mb-4">
                 Entre em contato! Avaliamos sua localização e oferecemos a melhor proposta.
               </p>
               <a

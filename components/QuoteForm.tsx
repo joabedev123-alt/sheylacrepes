@@ -70,7 +70,7 @@ function SectionTitle({ icon, children }: { icon: string; children: React.ReactN
         <i className={`${icon} text-sm text-brand-gold-light`} />
       </div>
       <h3
-        className="text-base font-bold text-white/80 uppercase tracking-widest"
+        className="text-base font-bold text-[var(--color-text)]/80 uppercase tracking-widest"
         style={{ fontFamily: "'Poppins', sans-serif", fontSize: '0.8rem' }}
       >
         {children}
@@ -152,7 +152,7 @@ function CheckboxField({
         onChange={(e) => onChange(e.target.checked)}
         className="sr-only"
       />
-      <span className="text-sm text-white/60 group-hover:text-white/80 transition-colors">
+      <span className="text-sm text-[var(--color-text)]/60 group-hover:text-[var(--color-text)]/80 transition-colors">
         {label}
       </span>
     </label>
@@ -305,7 +305,7 @@ ${data.observacoes || 'Nenhuma observação.'}`;
       className="section-padding"
       style={{
         background:
-          'radial-gradient(ellipse at 50% 0%, rgba(200,164,107,0.1) 0%, transparent 60%), #0F0F0F',
+          'radial-gradient(ellipse at 50% 0%, rgba(200,164,107,0.1) 0%, transparent 60%), var(--color-bg)',
       }}
     >
       <div className="max-w-4xl mx-auto">
@@ -322,12 +322,12 @@ ${data.observacoes || 'Nenhuma observação.'}`;
             Solicite agora
           </span>
           <h2
-            className="text-4xl md:text-5xl font-black text-white mb-4"
+            className="text-4xl md:text-5xl font-black text-[var(--color-text)] mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Solicitar <span className="text-gradient">Orçamento</span>
           </h2>
-          <p className="text-base text-white/50 max-w-md mx-auto font-light">
+          <p className="text-base text-[var(--color-text)]/50 max-w-md mx-auto font-light">
             Preencha o formulário e receba uma proposta personalizada em até 24 horas.
           </p>
           <div className="divider-gradient w-24 mx-auto mt-8" />
@@ -735,7 +735,7 @@ ${data.observacoes || 'Nenhuma observação.'}`;
                 )}
               </button>
 
-              <p className="text-xs text-white/30 text-center max-w-sm">
+              <p className="text-xs text-[var(--color-text)]/30 text-center max-w-sm">
                 Ao enviar, você concorda em receber nosso contato via WhatsApp e/ou e-mail.
                 Não compartilhamos seus dados com terceiros.
               </p>

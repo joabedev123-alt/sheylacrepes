@@ -20,7 +20,7 @@ const specialtiesLinks = [
 export default function Footer() {
   return (
     <footer
-      style={{ background: '#0F0F0F', borderTop: '1px solid rgba(200,164,107,0.15)' }}
+      style={{ background: 'var(--color-bg)', borderTop: '1px solid rgba(200,164,107,0.15)' }}
     >
       {/* Main footer content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -34,7 +34,7 @@ export default function Footer() {
                 className="w-11 h-11 rounded-full flex items-center justify-center"
                 style={{ background: 'linear-gradient(135deg, #C8A46B, #8B1E3F)' }}
               >
-                <i className="bi bi-patch-heart-fill text-white text-lg" />
+                <i className="bi bi-patch-heart-fill text-[var(--color-text)] text-lg" />
               </div>
               <div>
                 <div
@@ -49,7 +49,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-sm text-white/45 leading-relaxed max-w-xs mb-6">
+            <p className="text-sm text-[var(--color-text)]/45 leading-relaxed max-w-xs mb-6">
               Transformando eventos comuns em experiências gastronômicas inesquecíveis desde 2013.
               Atendemos SP capital, interior e litoral.
             </p>
@@ -107,7 +107,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/45 hover:text-white/80 transition-colors duration-200 flex items-center gap-2 cursor-pointer group"
+                    className="text-sm text-[var(--color-text)]/45 hover:text-[var(--color-text)]/80 transition-colors duration-200 flex items-center gap-2 cursor-pointer group"
                   >
                     <span
                       className="w-1 h-1 rounded-full bg-brand-gold/50 group-hover:bg-brand-gold transition-colors flex-shrink-0"
@@ -129,7 +129,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="text-sm text-white/45 hover:text-white/80 transition-colors duration-200 flex items-center gap-2 cursor-pointer group"
+                    className="text-sm text-[var(--color-text)]/45 hover:text-[var(--color-text)]/80 transition-colors duration-200 flex items-center gap-2 cursor-pointer group"
                   >
                     <span className="w-1 h-1 rounded-full bg-brand-wine/50 group-hover:bg-brand-wine transition-colors flex-shrink-0" />
                     {link.label}
@@ -142,34 +142,34 @@ export default function Footer() {
               Contato
             </h4>
             <div className="space-y-2.5">
-              <div className="text-[11px] text-white/60 font-semibold tracking-wider uppercase">
+              <div className="text-[11px] text-[var(--color-text)]/60 font-semibold tracking-wider uppercase">
                 Sheyla e Marcelo
               </div>
-              <div className="flex items-center gap-2 text-xs text-white/40">
+              <div className="flex items-center gap-2 text-xs text-[var(--color-text)]/40">
                 <i className="bi bi-telephone-fill text-brand-gold" />
-                <a href="tel:1126132554" className="hover:text-white transition-colors">Fixo: (11) 2613-2554</a>
+                <a href="tel:1126132554" className="hover:text-[var(--color-text)] transition-colors">Fixo: (11) 2613-2554</a>
               </div>
-              <div className="flex items-center gap-2 text-xs text-white/40">
+              <div className="flex items-center gap-2 text-xs text-[var(--color-text)]/40">
                 <i className="bi bi-whatsapp text-[#25D366]" />
-                <a href="https://wa.me/5511913672688" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Sheyla: (11) 91367-2688</a>
+                <a href="https://wa.me/5511913672688" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-text)] transition-colors">Sheyla: (11) 91367-2688</a>
               </div>
-              <div className="flex items-center gap-2 text-xs text-white/40">
+              <div className="flex items-center gap-2 text-xs text-[var(--color-text)]/40">
                 <i className="bi bi-whatsapp text-[#25D366]" />
-                <a href="https://wa.me/5511947948423" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Marcelo: (11) 94794-8423</a>
+                <a href="https://wa.me/5511947948423" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-text)] transition-colors">Marcelo: (11) 94794-8423</a>
               </div>
-              <div className="flex items-center gap-2 text-xs text-white/40">
+              <div className="flex items-center gap-2 text-xs text-[var(--color-text)]/40">
                 <i className="bi bi-whatsapp text-[#25D366]" />
-                <a href="https://wa.me/5511915499514" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Atendimento: (11) 91549-9514</a>
+                <a href="https://wa.me/5511915499514" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--color-text)] transition-colors">Atendimento: (11) 91549-9514</a>
               </div>
-              <div className="flex items-center gap-2 text-xs text-white/40">
+              <div className="flex items-center gap-2 text-xs text-[var(--color-text)]/40">
                 <i className="bi bi-telephone text-brand-gold" />
-                <a href="tel:11967938117" className="hover:text-white transition-colors">Celular: (11) 96793-8117</a>
+                <a href="tel:11967938117" className="hover:text-[var(--color-text)] transition-colors">Celular: (11) 96793-8117</a>
               </div>
-              <div className="flex items-center gap-2 text-xs text-white/40">
+              <div className="flex items-center gap-2 text-xs text-[var(--color-text)]/40">
                 <i className="bi bi-envelope text-brand-gold" />
                 <span>Sheylacrepes@outlook.com</span>
               </div>
-              <div className="flex items-center gap-2 text-xs text-white/40">
+              <div className="flex items-center gap-2 text-xs text-[var(--color-text)]/40">
                 <i className="bi bi-geo-alt text-brand-gold" />
                 <span>São Paulo, SP — Brasil</span>
               </div>
@@ -182,12 +182,12 @@ export default function Footer() {
       <div style={{ borderTop: '1px solid rgba(200,164,107,0.1)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-xs text-white/30 text-center sm:text-left">
+            <div className="text-xs text-[var(--color-text)]/30 text-center sm:text-left">
               © {new Date().getFullYear()}{' '}
               <span className="text-gradient-brand font-semibold">Sheylacrepes</span>{' '}
               — Buffet Gourmet Premium. Todos os direitos reservados.
             </div>
-            <div className="flex items-center gap-1 text-xs text-white/40">
+            <div className="flex items-center gap-1 text-xs text-[var(--color-text)]/40">
               <span>Produzida com</span>
               <span>💚</span>
               <span>por</span>
@@ -195,7 +195,7 @@ export default function Footer() {
                 href="https://camaly.com.br/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-white/60 hover:text-white transition-colors duration-200"
+                className="font-semibold text-[var(--color-text)]/60 hover:text-[var(--color-text)] transition-colors duration-200"
               >
                 CAMALY
               </a>

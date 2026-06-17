@@ -97,7 +97,7 @@ function SpecialtyCard({ item, index }: { item: Specialty; index: number }) {
       ref={ref}
       onClick={handleCardClick}
       className="relative group rounded-2xl overflow-hidden cursor-pointer h-80 card-glow"
-      style={{ background: '#0F0F0F' }}
+      style={{ background: 'var(--color-bg)' }}
       initial={{ opacity: 0, y: 50 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
@@ -154,12 +154,12 @@ function SpecialtyCard({ item, index }: { item: Specialty; index: number }) {
       {/* Content */}
       <div className="absolute bottom-0 left-0 right-0 p-6">
         <h3
-          className="text-2xl font-medium text-white mb-2 group-hover:text-gradient transition-all"
+          className="text-2xl font-medium text-[var(--color-text)] mb-2 group-hover:text-gradient transition-all"
           style={{ fontFamily: "'Playfair Display', serif" }}
         >
           {item.title}
         </h3>
-        <p className="text-sm text-white/60 leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-2 group-hover:translate-y-0 line-clamp-3">
+        <p className="text-sm text-[var(--color-text)]/60 leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-400 translate-y-2 group-hover:translate-y-0 line-clamp-3">
           {item.desc}
         </p>
 
@@ -180,7 +180,7 @@ export default function Specialties() {
   const inView   = useInView(titleRef, { once: true })
 
   return (
-    <section id="especialidades" className="section-padding relative bg-gradient-to-b from-[#0F0F0F]/30 to-[#0F0F0F]/10">
+    <section id="especialidades" className="section-padding relative bg-gradient-to-b from-[var(--color-bg)]/30 to-[var(--color-bg)]/10">
       <div className="max-w-7xl mx-auto">
 
         {/* Section Header */}
@@ -195,13 +195,13 @@ export default function Specialties() {
             Experiência Gastronômica
           </span>
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-normal text-white mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-normal text-[var(--color-text)] mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
             Curadoria de{' '}
             <span className="text-gradient font-semibold">Sabores</span>
           </h2>
-          <p className="text-sm md:text-base text-white/50 max-w-xl mx-auto font-light tracking-wide">
+          <p className="text-sm md:text-base text-[var(--color-text)]/50 max-w-xl mx-auto font-light tracking-wide">
             Um repertório elaborado para surpreender os paladares mais exigentes.
           </p>
           <div className="divider-gradient w-32 mx-auto mt-8" />

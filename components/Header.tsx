@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
+import ThemeSwitch from './ThemeSwitch'
 
 const navLinks = [
   { href: '#inicio',         label: 'Início' },
@@ -52,7 +53,7 @@ export default function Header() {
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-[#0F0F0F]/80 backdrop-blur-md border-b border-white/10 shadow-lg'
+            ? 'bg-[var(--color-bg)]/80 backdrop-blur-md border-b border-white/10 shadow-lg'
             : 'bg-transparent border-b border-transparent'
         }`}
         initial={{ y: -100, opacity: 0 }}
@@ -80,8 +81,8 @@ export default function Header() {
                   onClick={() => handleNavClick(link.href)}
                   className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-lg cursor-pointer
                     ${activeLink === link.href
-                      ? 'text-white'
-                      : 'text-white/60 hover:text-white'
+                      ? 'text-[var(--color-text)]'
+                      : 'text-[var(--color-text-muted)] hover:text-[var(--color-text)]'
                     }`}
                 >
                   {link.label}
@@ -96,25 +97,29 @@ export default function Header() {
               ))}
             </nav>
 
-            {/* Mobile Hamburger */}
-            <button
-              className="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 cursor-pointer z-50"
+            <div className="flex items-center gap-4 z-50">
+              <ThemeSwitch />
+              
+              {/* Mobile Hamburger */}
+              <button
+                className="lg:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 cursor-pointer"
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
             >
               <motion.span
                 animate={menuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-                className="w-6 h-0.5 bg-white rounded-full block transition-colors"
+                className={`w-6 h-0.5 rounded-full block transition-colors ${scrolled || menuOpen ? 'bg-[var(--color-text)]' : 'bg-white'}`}
               />
               <motion.span
                 animate={menuOpen ? { opacity: 0, scaleX: 0 } : { opacity: 1, scaleX: 1 }}
-                className="w-6 h-0.5 bg-white rounded-full block"
+                className={`w-6 h-0.5 rounded-full block ${scrolled || menuOpen ? 'bg-[var(--color-text)]' : 'bg-white'}`}
               />
               <motion.span
                 animate={menuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-                className="w-6 h-0.5 bg-white rounded-full block"
+                className={`w-6 h-0.5 rounded-full block ${scrolled || menuOpen ? 'bg-[var(--color-text)]' : 'bg-white'}`}
               />
             </button>
+            </div>
 
           </div>
         </div>
@@ -125,7 +130,7 @@ export default function Header() {
         {menuOpen && (
           <motion.div
             className="fixed inset-0 z-40 flex flex-col"
-            style={{ background: 'rgba(15,15,15,0.98)', backdropFilter: 'blur(20px)' }}
+            style={{ background: 'rgba(var(--color-bg-rgb, 15, 15, 15),0.98)', backdropFilter: 'blur(20px)' }}
             initial={{ opacity: 0, x: '100%' }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: '100%' }}
@@ -145,7 +150,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-2xl font-semibold text-white/80 hover:text-white cursor-pointer transition-colors"
+                  className="text-2xl font-semibold text-[var(--color-text)]/80 hover:text-[var(--color-text)] cursor-pointer transition-colors"
                   style={{ fontFamily: "'Playfair Display', serif" }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}

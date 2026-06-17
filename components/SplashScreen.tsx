@@ -28,7 +28,7 @@ export default function SplashScreen() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0, filter: 'blur(10px)' }}
           transition={{ duration: 0.8, ease: 'easeInOut' }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#0F0F0F]"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[var(--color-bg)]"
         >
           {/* Logo animada */}
           <motion.div
@@ -51,7 +51,7 @@ export default function SplashScreen() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-white/70 tracking-[0.3em] uppercase text-xs md:text-sm font-light text-center"
+              className="text-[var(--color-text)]/70 tracking-[0.3em] uppercase text-xs md:text-sm font-light text-center"
             >
               Buffet Gourmet Premium
             </motion.div>

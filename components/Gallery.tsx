@@ -59,7 +59,7 @@ export default function Gallery() {
   }, [lightbox, navigate, closeLightbox])
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ background: '#0F0F0F' }}>
+    <section className="py-20 px-4 sm:px-6 lg:px-8" style={{ background: 'var(--color-bg)' }}>
       <div className="max-w-7xl mx-auto">
 
         {/* Category tabs */}
@@ -70,8 +70,8 @@ export default function Gallery() {
               onClick={() => setActive(cat)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 cursor-pointer ${
                 active === cat
-                  ? 'bg-brand-gold text-white shadow-[0_0_16px_rgba(200,164,107,0.4)]'
-                  : 'bg-white/5 text-white/60 hover:bg-white/10 hover:text-white border border-white/10'
+                  ? 'bg-brand-gold text-[var(--color-text)] shadow-[0_0_16px_rgba(200,164,107,0.4)]'
+                  : 'bg-white/5 text-[var(--color-text)]/60 hover:bg-white/10 hover:text-[var(--color-text)] border border-white/10'
               }`}
             >
               {cat}
@@ -103,10 +103,10 @@ export default function Gallery() {
                   className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-                  <i className="bi bi-zoom-in text-white text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <i className="bi bi-zoom-in text-[var(--color-text)] text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="text-xs text-white/80 bg-black/60 px-2 py-1 rounded-full backdrop-blur-sm">
+                  <span className="text-xs text-[var(--color-text)]/80 bg-black/60 px-2 py-1 rounded-full backdrop-blur-sm">
                     {item.category}
                   </span>
                 </div>
@@ -129,7 +129,7 @@ export default function Gallery() {
           >
             {/* Close */}
             <button
-              className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer z-10"
+              className="absolute top-4 right-4 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-[var(--color-text)] hover:bg-white/20 transition-colors cursor-pointer z-10"
               onClick={closeLightbox}
               aria-label="Fechar"
             >
@@ -138,7 +138,7 @@ export default function Gallery() {
 
             {/* Prev */}
             <button
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer z-10"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-[var(--color-text)] hover:bg-white/20 transition-colors cursor-pointer z-10"
               onClick={(e) => { e.stopPropagation(); navigate(-1) }}
               aria-label="Anterior"
             >
@@ -160,7 +160,7 @@ export default function Gallery() {
 
             {/* Next */}
             <button
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer z-10"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-[var(--color-text)] hover:bg-white/20 transition-colors cursor-pointer z-10"
               onClick={(e) => { e.stopPropagation(); navigate(1) }}
               aria-label="Próxima"
             >
@@ -169,8 +169,8 @@ export default function Gallery() {
 
             {/* Caption */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center">
-              <p className="text-white/70 text-sm">{lightbox.alt}</p>
-              <p className="text-white/40 text-xs mt-1">
+              <p className="text-[var(--color-text)]/70 text-sm">{lightbox.alt}</p>
+              <p className="text-[var(--color-text)]/40 text-xs mt-1">
                 {filtered.findIndex((p) => p.id === lightbox.id) + 1} / {filtered.length}
               </p>
             </div>

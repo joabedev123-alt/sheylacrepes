@@ -23,7 +23,7 @@ export default function PageBanner({
   return (
     <section
       className="relative pt-36 pb-16 overflow-hidden"
-      style={{ background: '#0F0F0F' }}
+      style={{ background: 'var(--color-bg)' }}
     >
       {/* Radial glow behind title */}
       <div
@@ -35,8 +35,8 @@ export default function PageBanner({
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
-        <div className="flex items-center gap-2 text-xs text-white/35 mb-8">
-          <Link href="/" className="hover:text-white/60 transition-colors cursor-pointer">
+        <div className="flex items-center gap-2 text-xs text-[var(--color-text)]/35 mb-8">
+          <Link href="/" className="hover:text-[var(--color-text)]/60 transition-colors cursor-pointer">
             Início
           </Link>
           <i className="bi bi-chevron-right text-[10px]" />
@@ -64,12 +64,12 @@ export default function PageBanner({
               className="text-4xl sm:text-5xl font-black leading-tight"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              <span className="text-white">{title} </span>
+              <span className="text-[var(--color-text)]">{title} </span>
               <span style={{ color: accentColor }}>{titleAccent}</span>
             </h1>
           </div>
 
-          <p className="text-white/50 max-w-2xl text-base leading-relaxed pl-1">
+          <p className="text-[var(--color-text)]/50 max-w-2xl text-base leading-relaxed pl-1">
             {subtitle}
           </p>
         </motion.div>
