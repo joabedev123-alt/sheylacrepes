@@ -173,6 +173,48 @@ export default function QuoteForm() {
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: undefined }))
   }
 
+  const handleCepChange = async (value: string, isEvento: boolean) => {
+    const cleanCep = value.replace(/\D/g, '')
+    
+    let maskedCep = cleanCep
+    if (cleanCep.length > 5) {
+      maskedCep = `${cleanCep.substring(0, 5)}-${cleanCep.substring(5, 8)}`
+    }
+    
+    const fieldName = isEvento ? 'cepEvento' : 'cep'
+    set(fieldName, maskedCep)
+    
+    if (cleanCep.length === 8) {
+      try {
+        const res = await fetch(`https://viacep.com.br/ws/${cleanCep}/json/`)
+        const data = await res.json()
+        
+        if (!data.erro) {
+          if (isEvento) {
+            setForm((prev) => ({
+              ...prev,
+              enderecoEvento: data.logradouro || '',
+              bairroEvento: data.bairro || '',
+              cepEvento: maskedCep,
+            }))
+            if (errors.enderecoEvento) {
+              setErrors((prev) => ({ ...prev, enderecoEvento: undefined }))
+            }
+          } else {
+            setForm((prev) => ({
+              ...prev,
+              endereco: data.logradouro || '',
+              bairro: data.bairro || '',
+              cep: maskedCep,
+            }))
+          }
+        }
+      } catch (err) {
+        console.error('Erro ao buscar CEP:', err)
+      }
+    }
+  }
+
   const validate = (): boolean => {
     const e: typeof errors = {}
     if (!form.nome.trim())           e.nome           = 'Nome obrigatório'
@@ -185,24 +227,71 @@ export default function QuoteForm() {
     return Object.keys(e).length === 0
   }
 
+  const formatWhatsappMessage = (data: FormData): string => {
+    const formatSimNao = (val: string) => val === 'sim' ? 'Sim' : 'Não';
+    
+    // Equipamentos disponíveis
+    const equipamentosList: string[] = [];
+    if (data.fogaoConvencional === 'sim') equipamentosList.push('Fogão Convencional');
+    if (data.fogaoEletrico === 'sim') equipamentosList.push('Fogão Elétrico');
+    if (data.fogaoInducao === 'sim') equipamentosList.push('Fogão Indução');
+    if (data.microondas === 'sim') equipamentosList.push('Microondas');
+    if (data.geladeira === 'sim') equipamentosList.push('Geladeira');
+    if (data.freezer === 'sim') equipamentosList.push('Freezer');
+    
+    const equipamentosStr = equipamentosList.length > 0 ? equipamentosList.join(', ') : 'Nenhum';
+
+    return `🥞 *NOVA SOLICITAÇÃO DE ORÇAMENTO* 🥞
+
+👤 *DADOS PESSOAIS*
+• *Nome:* ${data.nome}
+• *WhatsApp:* ${data.telefone}
+• *E-mail / Instagram:* ${data.emailInstagram}
+• *CPF:* ${data.cpf || 'Não informado'}
+• *Data de Nascimento:* ${data.dataNascimento || 'Não informada'}
+• *Endereço:* ${data.endereco || 'Não informado'}
+• *Bairro:* ${data.bairro || 'Não informado'}
+• *CEP:* ${data.cep || 'Não informado'}
+
+📅 *DADOS DO EVENTO*
+• *Data do Evento:* ${data.dataEvento}
+• *Horário:* ${data.horario || 'Não informado'}
+• *Número de Pessoas:* ${data.numeroPessoas}
+• *Tipo de Local:* ${data.tipoLocal.toUpperCase()}
+• *Endereço do Evento:* ${data.enderecoEvento}
+• *Bairro do Evento:* ${data.bairroEvento || 'Não informado'}
+• *CEP do Evento:* ${data.cepEvento || 'Não informado'}
+
+💼 *SERVIÇOS ADICIONAIS*
+• *Garçom:* ${formatSimNao(data.garcom)}${data.garcom === 'sim' && data.quantidadeGarcons ? ` (${data.quantidadeGarcons} garçons)` : ''}
+• *Crepeiro Extra:* ${formatSimNao(data.crepeiroExtra)}
+
+⚙️ *INFRAESTRUTURA DO LOCAL*
+• *Pode usar gás?* ${formatSimNao(data.gas)}
+• *Elétrica:* ${data.eletrica}
+• *Toalhas de Mesa:* ${formatSimNao(data.toalhas)}${data.toalhas === 'sim' ? ` (${data.quantidadeToalhas} toalhas, cor ${data.corToalhas})` : ''}
+• *Copa/Cozinha disponível?* ${formatSimNao(data.copaOuCozinha)}
+• *Equipamentos no local:* ${equipamentosStr}
+
+✍ *OBSERVAÇÕES*
+${data.observacoes || 'Nenhuma observação.'}`;
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!validate()) return
 
     setStatus('loading')
     try {
-      const res = await fetch('/api/contact', {
-        method:  'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body:    JSON.stringify(form),
-      })
-      const data = await res.json()
-      if (data.success) {
-        setStatus('success')
-        setForm(initial)
-      } else {
-        setStatus('error')
-      }
+      const message = formatWhatsappMessage(form)
+      const encodedText = encodeURIComponent(message)
+      const whatsappUrl = `https://api.whatsapp.com/send?phone=5511913672688&text=${encodedText}`
+      
+      // Abrir o WhatsApp em nova aba
+      window.open(whatsappUrl, '_blank')
+      
+      setStatus('success')
+      setForm(initial)
     } catch {
       setStatus('error')
     }
@@ -311,7 +400,7 @@ export default function QuoteForm() {
                   className="input-premium"
                   placeholder="00000-000"
                   value={form.cep}
-                  onChange={(e) => set('cep', e.target.value)}
+                  onChange={(e) => handleCepChange(e.target.value, false)}
                 />
               </div>
 
@@ -422,7 +511,7 @@ export default function QuoteForm() {
                   className="input-premium"
                   placeholder="00000-000"
                   value={form.cepEvento}
-                  onChange={(e) => set('cepEvento', e.target.value)}
+                  onChange={(e) => handleCepChange(e.target.value, true)}
                 />
               </div>
 

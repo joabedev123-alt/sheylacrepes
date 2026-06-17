@@ -7,7 +7,10 @@ export const viewport: Viewport = {
   initialScale: 1,
 }
 
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://sheylacrepes.com'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title:       'Sheylacrepes — Buffet Gourmet Premium',
   description: 'Buffet premium especializado em Crepes, Feijoadas, Risotos, Massas e Eventos Gourmet. Atendemos São Paulo capital, interior e litoral. Solicite seu orçamento!',
   keywords:    'buffet gourmet, crepes, feijoada, risoto, massas, churrasco, eventos, São Paulo, buffet premium',
@@ -21,7 +24,19 @@ export const metadata: Metadata = {
     description: 'Sabor, sofisticação e experiências inesquecíveis. Buffet especializado em Crepes e muito mais.',
     type:        'website',
     locale:      'pt_BR',
+    images: [
+      {
+        url: '/logo-sheyla.jpeg',
+        width: 800,
+        height: 800,
+        alt: 'Logo Sheylacrepes',
+      }
+    ],
   },
+  twitter: {
+    card: 'summary_large_image',
+    images: ['/logo-sheyla.jpeg'],
+  }
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
